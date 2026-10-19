@@ -1,0 +1,1622 @@
+<!doctype html><html lang="da"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="KOLD i Åbyhøj: frisklavet SMÖR, sandwich, pasta og friskpressede juicer. Henrik Hertz Vej 74, 8230 Åbyhøj."><meta property="og:type" content="website"><meta property="og:title" content="KOLD Aarhus"><meta property="og:description" content="KOLD i Åbyhøj: frisklavet SMÖR, sandwich, pasta og friskpressede juicer. Henrik Hertz Vej 74, 8230 Åbyhøj."><meta property="og:image" content="https://koldaarhus.dk/fisk.webp"><meta name="theme-color" content="#B5E61D"><link rel="icon" href="favicon.svg" type="image/svg+xml"><title>KOLD Aarhus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&display=swap">
+<style>
+  /* Layout: hvid side, lime cirkel som gennemgående motiv; menukortet er fire små værktøjer (bon, tallerken, flaske, morgenbakke). */
+  :root{
+    --hvid:#FFFFFF;
+    --lime:#B5E61D;
+    --lime-moerk:#9ACB10;
+    --lime-lys:#EEF9D2;
+    --skov:#14301B;
+    --mos:#5B6B52;
+    --linje:#D6E2C6;
+
+    --bg:var(--hvid);
+    --tekst:var(--skov);
+    --tekst2:var(--mos);
+    --flade:var(--lime-lys);
+    --skygge:0 30px 60px -30px rgba(20,48,27,.35);
+    --skygge-blød:rgba(20,48,27,.22);
+
+    /* Bånd og stempel vender farver i mørk tilstand, så de ikke forsvinder i baggrunden */
+    --baand-bg:var(--skov); --baand-fg:var(--hvid); --baand-blad:var(--lime);
+    --stempel-bg:var(--skov); --stempel-fg:var(--hvid); --stempel-blad:var(--lime);
+
+    /* Fysiske ting (bon, tallerken, flaske) er lyse i begge temaer */
+    --bon-bg:#FFFFFF; --bon-tekst:#14301B; --bon-tekst2:#5B6B52; --bon-streg:#B9C7AA;
+    --tallerken:#FFFFFF; --tallerken-kant:#DCE5D0; --tallerken-tom:#B9C7AA;
+    --glas:rgba(255,255,255,.16); --glas-kant:rgba(20,48,27,.28); --glas-lys:rgba(255,255,255,.7);
+
+    /* Råvarefarver */
+    --j-appelsin:#F6A11A; --j-green:#86B83A; --j-gulerod:#EF7420; --j-grape:#EA6862;
+    --d-honey:#E2AC33; --d-chili:#C8352B; --d-creme:#F4EEDF; --d-karry:#E0A21A; --d-pesto:#5E8B2E;
+    --rug:#4A3326; --rug-prik:#6A4C39;
+    --t-fisk:#D48A2C; --p-fisk:#E9502B;
+    --t-kartoffel:#E7D39C; --p-kartoffel:#6E9B2F;
+    --t-tartar:#A93E35; --p-tartar:#F2B632;
+    --t-aeg:#F3D27A; --p-aeg:#EF8E7E;
+    --t-tun:#E08A77; --p-tun:#5D8F2E;
+    --t-roastbeef:#7E3328; --p-roastbeef:#C79A5B;
+
+    --sans:"Archivo", "Helvetica Neue", Arial, sans-serif;
+    --serif:"Fraunces", "Iowan Old Style", Georgia, serif;
+    --maal:1180px;
+    --gutter:clamp(16px, 4vw, 48px);
+    --top-h:72px;
+    --fane-h:64px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0E1C12; --tekst:#F2F7E6; --tekst2:#A9B89C; --flade:#172A1B; --linje:#28402C;
+      --skygge:0 30px 60px -30px rgba(0,0,0,.7); --skygge-blød:rgba(0,0,0,.45);
+      --baand-bg:var(--lime); --baand-fg:var(--skov); --baand-blad:var(--skov);
+      --stempel-bg:var(--lime); --stempel-fg:var(--skov); --stempel-blad:var(--skov);
+      --bon-bg:#F4F8EC; --tallerken:#EEF2E6; --tallerken-kant:#C9D3BC; --tallerken-tom:#4A6150;
+      --glas:rgba(255,255,255,.10); --glas-kant:rgba(242,247,230,.35); --glas-lys:rgba(255,255,255,.35);
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0E1C12; --tekst:#F2F7E6; --tekst2:#A9B89C; --flade:#172A1B; --linje:#28402C;
+    --skygge:0 30px 60px -30px rgba(0,0,0,.7); --skygge-blød:rgba(0,0,0,.45);
+    --baand-bg:var(--lime); --baand-fg:var(--skov); --baand-blad:var(--skov);
+    --stempel-bg:var(--lime); --stempel-fg:var(--skov); --stempel-blad:var(--skov);
+    --bon-bg:#F4F8EC; --tallerken:#EEF2E6; --tallerken-kant:#C9D3BC; --tallerken-tom:#4A6150;
+    --glas:rgba(255,255,255,.10); --glas-kant:rgba(242,247,230,.35); --glas-lys:rgba(255,255,255,.35);
+    color-scheme:dark;
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--tekst);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;height:auto;display:block}
+  [hidden]{display:none!important}
+  a{color:inherit}
+  h1,h2,h3,h4{margin:0;text-wrap:balance}
+  p{margin:0}
+  ul,ol{margin:0;padding:0;list-style:none}
+  button{font:inherit;color:inherit}
+  .wrap{max-width:var(--maal);margin-inline:auto;padding-inline:var(--gutter)}
+  .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;margin:0;padding:0;border:0}
+  :focus-visible{outline:3px solid var(--lime);outline-offset:3px;border-radius:2px}
+
+  /* Wordmark: KOLD med blad i O'et */
+  .maerke{
+    font-family:var(--sans);
+    font-weight:900;
+    font-stretch:125%;
+    letter-spacing:-.03em;
+    line-height:1;
+    text-decoration:none;
+    display:inline-flex;align-items:baseline;
+    white-space:nowrap;
+  }
+  .maerke .o{position:relative;display:inline-block}
+  .maerke .o svg{
+    position:absolute; left:50%; top:52%;
+    width:.42em; height:.42em;
+    transform:translate(-50%,-50%) rotate(-18deg);
+    fill:var(--lime);
+    pointer-events:none;
+  }
+  .maerke .o svg .stilk{stroke:var(--lime);stroke-width:1.2;fill:none;stroke-linecap:round}
+
+  /* Topbar */
+  .top{
+    position:sticky; top:env(safe-area-inset-top, 0px); z-index:50;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--linje);
+  }
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:var(--top-h)}
+  .top .maerke{font-size:1.9rem}
+  .nav{display:flex;align-items:center;gap:clamp(14px,2.4vw,34px)}
+  .nav a{
+    text-decoration:none;font-weight:600;font-size:.98rem;
+    padding:8px 0;border-bottom:2px solid transparent;
+    transition:border-color .15s;
+  }
+  .nav a:hover{border-bottom-color:var(--lime)}
+  .nav a.cta{
+    background:var(--lime);color:var(--skov);border:0;border-radius:999px;
+    padding:10px 18px;
+  }
+  .nav a.cta:hover{background:var(--lime-moerk)}
+  .burger{
+    display:none;background:none;border:1px solid var(--linje);border-radius:999px;
+    padding:9px 14px;font-weight:600;cursor:pointer;
+  }
+  @media (max-width: 760px){
+    .burger{display:inline-block}
+    .nav{
+      display:none; position:absolute; left:0; right:0; top:100%;
+      background:var(--bg); border-bottom:1px solid var(--linje);
+      flex-direction:column; align-items:stretch; gap:0;
+      padding:8px var(--gutter) 16px;
+    }
+    .nav.aaben{display:flex}
+    .nav a{padding:14px 0;border-bottom:1px solid var(--linje);font-size:1.1rem}
+    .nav a:last-child{border-bottom:0}
+    .nav a.cta{margin-top:10px;text-align:center}
+  }
+
+  /* Åben nu-mærke (læser åbningstiderne fra tabellen under "Find os") */
+  .status{
+    display:inline-flex;align-items:center;gap:10px;
+    font-weight:700;font-size:.95rem;line-height:1.2;
+    padding:8px 16px 8px 13px;border:1.5px solid var(--linje);border-radius:999px;
+  }
+  .status .prik{width:10px;height:10px;border-radius:50%;background:var(--tekst2);flex:none}
+  .status[data-aaben="ja"] .prik{background:var(--lime-moerk)}
+  @media (prefers-reduced-motion: no-preference){
+    .status[data-aaben="ja"] .prik{animation:puls 2.2s ease-out infinite}
+    @keyframes puls{0%{box-shadow:0 0 0 0 color-mix(in srgb, var(--lime) 80%, transparent)}70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
+  }
+
+  /* Hero */
+  .hero .wrap{
+    display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+    gap:clamp(24px,5vw,72px); align-items:center;
+    padding-block:clamp(36px,6vw,88px);
+  }
+  .hero .tekst{container-type:inline-size;min-width:0}
+  .hero .status{margin-bottom:clamp(18px,2.4vw,28px)}
+  .hero h1{
+    font-weight:900; font-stretch:125%;
+    font-size:clamp(2.4rem, 6vw, 4.8rem);        /* fallback uden container queries */
+    font-size:clamp(2.4rem, 11.4cqw, 6.2rem);     /* "Gennemtænkt." skal altid passe i kolonnen */
+    line-height:.93; letter-spacing:-.035em;
+  }
+  .hero h1 .linje{display:block}
+  .hero h1 .maerke{font-size:1em;letter-spacing:inherit}
+  .hero .under{
+    margin-top:clamp(20px,3vw,32px);
+    max-width:32em; font-size:clamp(1.05rem,1.5vw,1.25rem); line-height:1.5;
+    color:var(--tekst2);
+  }
+  .hero .handling{display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center;margin-top:clamp(22px,3vw,36px)}
+  .knap{
+    display:inline-block;background:var(--lime);color:var(--skov);
+    text-decoration:none;font-weight:700;border-radius:999px;border:0;cursor:pointer;
+    padding:15px 26px;font-size:1.02rem;
+    transition:background .15s, transform .15s;
+  }
+  .knap:hover{background:var(--lime-moerk)}
+  .knap:active{transform:translateY(1px)}
+  .adresse-link{text-decoration:none;font-weight:600;border-bottom:2px solid var(--lime)}
+  .hero .billede{position:relative;aspect-ratio:1;max-width:min(560px,100%);justify-self:end;width:100%;perspective:900px}
+  .hero .billede .cirkel{
+    position:absolute; inset:6% 4% 4% 6%;
+    background:var(--lime); border-radius:50%;
+    translate:var(--cx,0) var(--cy,0);
+    transition:translate .5s cubic-bezier(.2,.7,.2,1);
+  }
+  .hero .billede img{
+    position:absolute; left:50%; top:52%;
+    width:108%; max-width:none;
+    transform:translate(-50%,-50%) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));
+    transition:transform .5s cubic-bezier(.2,.7,.2,1);
+    filter:drop-shadow(0 28px 30px rgba(20,48,27,.28));
+  }
+  .stempel{position:absolute;left:-2%;top:0;width:30%;max-width:150px;z-index:2}
+  .stempel .bund{fill:var(--stempel-bg)}
+  .stempel text{fill:var(--stempel-fg);font-family:var(--sans);font-weight:800;font-size:14px}
+  .stempel .blad{fill:var(--stempel-blad)}
+  .stempel .ring{transform-box:view-box;transform-origin:100px 100px}
+  @media (max-width: 900px){
+    .hero .wrap{grid-template-columns:minmax(0,1fr)}
+    .hero .billede{justify-self:center;max-width:min(440px,100%)}
+  }
+
+  /* Indlæsning: ét orkestreret øjeblik, kun i hero */
+  @media (prefers-reduced-motion: no-preference){
+    .hero h1 .linje{animation:stig .6s cubic-bezier(.2,.7,.2,1) both}
+    .hero h1 .linje:nth-child(2){animation-delay:.08s}
+    .hero h1 .linje:nth-child(3){animation-delay:.16s}
+    .hero .maerke .o svg{animation:blad .7s cubic-bezier(.2,.9,.3,1.3) .35s both}
+    .hero .billede .cirkel{animation:cirkel .8s cubic-bezier(.2,.7,.2,1) .1s both}
+    .stempel{animation:stempel .7s cubic-bezier(.2,.9,.3,1.3) .5s both}
+    .stempel .ring{animation:snurr 26s linear infinite}
+    @keyframes stig{from{opacity:0;transform:translateY(.35em)}to{opacity:1;transform:none}}
+    @keyframes blad{from{transform:translate(-50%,-50%) rotate(-60deg) scale(0)}to{transform:translate(-50%,-50%) rotate(-18deg) scale(1)}}
+    @keyframes cirkel{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}
+    @keyframes stempel{from{transform:scale(.4) rotate(-40deg);opacity:0}to{transform:none;opacity:1}}
+    @keyframes snurr{to{transform:rotate(360deg)}}
+  }
+
+  /* Rullebånd med retterne */
+  .baand{
+    display:flex;overflow:hidden;
+    background:var(--baand-bg);color:var(--baand-fg);
+    border-block:1px solid var(--baand-bg);
+  }
+  .spor{display:flex;align-items:center;flex:none;gap:28px;padding-right:28px;padding-block:16px}
+  .spor span{
+    font-weight:900;font-stretch:125%;letter-spacing:-.02em;text-transform:uppercase;
+    font-size:clamp(1.3rem,2.6vw,2rem);line-height:1;white-space:nowrap;
+  }
+  .spor svg{width:22px;height:22px;flex:none;fill:var(--baand-blad);transform:rotate(-18deg)}
+  @media (prefers-reduced-motion: no-preference){
+    .spor{animation:rul 38s linear infinite}
+    .baand:hover .spor{animation-play-state:paused}
+    @keyframes rul{to{transform:translateX(-100%)}}
+  }
+
+  /* Tre fakta på lime */
+  .fakta{background:var(--lime);color:var(--skov)}
+  .fakta .wrap{
+    display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:clamp(20px,4vw,56px); padding-block:clamp(28px,4vw,48px);
+  }
+  .fakta h3{font-family:var(--serif);font-weight:600;font-size:1.35rem;line-height:1.2;font-variation-settings:"opsz" 40}
+  .fakta p{margin-top:8px;font-size:.98rem;line-height:1.45;max-width:30em}
+  @media (max-width: 760px){
+    .fakta .wrap{grid-template-columns:minmax(0,1fr);gap:22px}
+    .fakta h3{font-size:1.25rem}
+  }
+
+  /* Sektioner */
+  .sektion{padding-block:clamp(56px,8vw,120px)}
+  .sektion + .sektion{border-top:1px solid var(--linje)}
+  .overskrift{
+    font-weight:800; font-stretch:125%; letter-spacing:-.03em;
+    font-size:clamp(2.1rem,4.6vw,3.6rem); line-height:1;
+  }
+  .indledning{
+    font-family:var(--serif); font-weight:300; font-style:italic;
+    font-variation-settings:"opsz" 72;
+    font-size:clamp(1.25rem,2vw,1.6rem); line-height:1.35;
+    max-width:30em; color:var(--tekst); margin-top:18px;
+  }
+
+  /* ---------- Menukort ---------- */
+  .menu{padding-bottom:clamp(56px,8vw,120px)}
+  .menu-hoved{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px 48px}
+  .menu-hoved > div{min-width:0;flex:1 1 420px}
+  .menu-note{max-width:22em;color:var(--tekst2);font-size:.98rem;border-left:3px solid var(--lime);padding-left:14px}
+
+  .fanebar-holder{
+    position:sticky; top:calc(env(safe-area-inset-top, 0px) + var(--top-h)); z-index:40;
+    margin-top:clamp(28px,4vw,44px);
+    background:color-mix(in srgb, var(--bg) 90%, transparent);
+    backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--linje);
+  }
+  .fanebar-holder .wrap{display:flex;align-items:center;min-height:var(--fane-h)}
+  .fanebar{
+    position:relative;display:flex;gap:4px;padding:5px;
+    border:1.5px solid var(--linje);border-radius:999px;
+    max-width:100%;overflow-x:auto;scrollbar-width:none;
+  }
+  .fanebar::-webkit-scrollbar{display:none}
+  .fanebar a{
+    position:relative;z-index:1;flex:none;
+    display:inline-flex;align-items:baseline;gap:8px;
+    text-decoration:none;font-weight:700;font-size:.98rem;
+    padding:9px 18px;border-radius:999px;white-space:nowrap;
+    transition:color .25s;
+  }
+  .fanebar a small{font-weight:600;font-size:.8rem;color:var(--tekst2);font-variant-numeric:tabular-nums;transition:color .25s}
+  .fanebar a.aktiv,.fanebar a.aktiv small{color:var(--skov)}
+  .fanebar .markoer{
+    position:absolute;z-index:0;top:5px;bottom:5px;left:0;width:0;
+    background:var(--lime);border-radius:999px;
+    transition:transform .4s cubic-bezier(.3,.8,.2,1), width .4s cubic-bezier(.3,.8,.2,1);
+  }
+
+  /* Menukort kommer snart: fire kategorier fra den nuværende side, harmonika + billede */
+  .snart{
+    margin-top:clamp(28px,4vw,48px);
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"liste scene";
+    gap:clamp(24px,5vw,72px);align-items:center;
+  }
+  .kat-liste{grid-area:liste;min-width:0;border-top:1px solid var(--linje)}
+  .kat{border-bottom:1px solid var(--linje)}
+  .kat > button{
+    width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 16px;
+    padding-block:20px;padding-inline:0;background:none;border:0;text-align:left;cursor:pointer;
+  }
+  .kat b{font-weight:900;font-stretch:125%;letter-spacing:-.02em;font-size:clamp(1.5rem,2.8vw,2.2rem);line-height:1.05}
+  .kat small{grid-column:1;color:var(--tekst2);font-size:.98rem}
+  .kat .pil{
+    grid-row:1 / span 2;grid-column:2;width:44px;height:44px;border-radius:50%;
+    border:1.5px solid var(--linje);display:grid;place-items:center;font-size:1.4rem;font-weight:700;line-height:1;
+    transition:transform .35s cubic-bezier(.3,.8,.2,1), background .2s, border-color .2s;
+  }
+  .kat > button:hover .pil{border-color:var(--lime)}
+  .kat.aaben .pil{background:var(--lime);border-color:var(--lime);color:var(--skov);transform:rotate(45deg)}
+  .kat .indhold{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.3,.8,.2,1)}
+  .kat .indhold > div{overflow:hidden;visibility:hidden;transition:visibility 0s .4s}
+  .kat.aaben .indhold{grid-template-rows:1fr}
+  .kat.aaben .indhold > div{visibility:visible;transition-delay:0s}
+  .kat .indhold p{max-width:34em}
+  .kat .indhold p + p{margin-top:10px}
+  .kat .indhold > div > :last-child{padding-bottom:24px}
+  .snart-scene{grid-area:scene;position:relative;aspect-ratio:1.15;width:100%;max-width:100%}
+  .snart-scene .cirkel{position:absolute;left:50%;top:50%;width:84%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;background:var(--lime)}
+  .snart-scene img{
+    position:absolute;left:50%;top:50%;width:90%;translate:-50% -50%;
+    filter:drop-shadow(0 22px 22px rgba(20,48,27,.3));
+    transition:opacity .35s, transform .55s cubic-bezier(.2,.9,.3,1.25);
+  }
+  .snart-scene img.skjult{opacity:0;transform:scale(.6) rotate(-20deg)}
+  .snart-maerke{
+    position:absolute;left:2%;top:4%;z-index:2;rotate:-7deg;
+    background:var(--stempel-bg);color:var(--stempel-fg);
+    font-weight:800;font-size:.95rem;line-height:1.25;padding:10px 16px;border-radius:999px;
+    box-shadow:0 12px 20px -10px var(--skygge-blød);
+  }
+  .snart-maerke small{display:block;font-weight:600;font-size:.8rem;opacity:.8}
+  @media (prefers-reduced-motion: no-preference){
+    .snart-maerke{animation:vip 3.6s ease-in-out infinite}
+    @keyframes vip{50%{rotate:-3deg}}
+  }
+  @media (max-width: 860px){
+    .snart{grid-template-columns:minmax(0,1fr);grid-template-areas:"scene" "liste"}
+    .snart-scene{max-width:460px;justify-self:center}
+  }
+  .tider-snart{margin-top:14px;color:var(--tekst2);max-width:24em}
+
+  .gruppe{scroll-margin-top:calc(env(safe-area-inset-top, 0px) + var(--top-h) + var(--fane-h) + 20px);padding-top:clamp(40px,5vw,64px)}
+  .gruppe + .gruppe{margin-top:clamp(28px,4vw,48px);border-top:1px solid var(--linje)}
+  .gruppe-hoved{display:flex;align-items:baseline;justify-content:space-between;gap:8px 20px;flex-wrap:wrap}
+  .gruppe h3{
+    font-weight:800; font-stretch:125%; letter-spacing:-.02em;
+    font-size:clamp(1.7rem,3vw,2.4rem); line-height:1.05;
+  }
+  .gruppe .note{color:var(--tekst2);font-size:.98rem}
+  .gruppe .intro{margin-top:12px;max-width:38em;color:var(--tekst2)}
+
+  .retter{margin-top:26px;display:grid;gap:26px 40px}
+  .retter.to{grid-template-columns:repeat(2,minmax(0,1fr))}
+  @media (max-width: 700px){.retter.to{grid-template-columns:minmax(0,1fr)}}
+  .ret{display:flex;flex-direction:column;min-width:0}
+  .ret .linje1{display:flex;align-items:baseline;gap:10px}
+  .ret .navn{
+    font-family:var(--serif); font-weight:600; font-size:1.28rem; line-height:1.15;
+    font-variation-settings:"opsz" 36; letter-spacing:-.005em;
+  }
+  .ret .leder{flex:1;min-width:18px;border-bottom:2px dotted var(--linje);transform:translateY(-.3em)}
+  .ret .pris{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .ret .beskriv{margin-top:6px;color:var(--tekst2);font-size:.98rem;line-height:1.45;max-width:34em}
+
+  /* Fælles kontroller */
+  .trin{border:0;margin:0;padding:0;min-width:0;display:grid;gap:12px}
+  .trin legend{padding:0;margin-bottom:12px;display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.02rem}
+  .trin .nr{
+    width:26px;height:26px;border-radius:50%;flex:none;
+    display:inline-grid;place-items:center;
+    background:var(--tekst);color:var(--bg);font-size:.8rem;font-weight:800;
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{position:relative;display:inline-flex}
+  .chip > span{
+    display:inline-flex;align-items:center;gap:8px;
+    border:1.5px solid var(--linje);border-radius:999px;
+    padding:9px 16px;font-weight:600;font-size:.95rem;line-height:1.2;
+    cursor:pointer;user-select:none;
+    transition:background .15s, border-color .15s, color .15s;
+  }
+  .chip:hover > span{border-color:var(--lime)}
+  .chip input:checked + span{background:var(--lime);border-color:var(--lime);color:var(--skov)}
+  .chip input:focus-visible + span{outline:3px solid var(--lime);outline-offset:3px}
+  .chip i{width:14px;height:14px;border-radius:50%;background:var(--sw);box-shadow:inset 0 0 0 1px var(--skygge-blød);flex:none}
+  .chip em{font-style:normal;font-variant-numeric:tabular-nums;opacity:.75}
+
+  .flueben{display:flex;align-items:center;gap:12px;cursor:pointer;font-weight:600;user-select:none}
+  .flueben input{
+    appearance:none;-webkit-appearance:none;margin:0;flex:none;
+    width:24px;height:24px;border:1.5px solid var(--linje);border-radius:7px;background:var(--bg);
+    display:grid;place-items:center;cursor:pointer;transition:background .15s,border-color .15s;
+  }
+  .flueben input::after{content:"";width:6px;height:11px;border:solid var(--skov);border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px) scale(0);transition:transform .15s}
+  .flueben input:checked{background:var(--lime);border-color:var(--lime)}
+  .flueben input:checked::after{transform:rotate(45deg) translate(-1px,-1px) scale(1)}
+  .flueben em{font-style:normal;color:var(--tekst2);font-variant-numeric:tabular-nums}
+
+  .stepper{display:inline-flex;align-items:center;gap:2px;border:1.5px solid var(--linje);border-radius:999px;padding:4px}
+  .stepper button{
+    width:38px;height:38px;border-radius:50%;border:0;cursor:pointer;
+    background:var(--flade);color:var(--tekst);font-size:1.25rem;font-weight:700;line-height:1;
+    transition:background .15s,color .15s;
+  }
+  .stepper button:hover:not(:disabled){background:var(--lime);color:var(--skov)}
+  .stepper button:disabled{opacity:.35;cursor:default}
+  .stepper output{min-width:2.4em;text-align:center;font-weight:800;font-size:1.1rem;font-variant-numeric:tabular-nums}
+  .styr-linje{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px}
+  .styr-linje > span{font-weight:700}
+
+  /* Kassebon */
+  .bon{
+    position:relative;justify-self:center;width:100%;max-width:400px;margin-bottom:14px;
+    background:var(--bon-bg);color:var(--bon-tekst);
+    padding:22px 22px 16px;
+    font-stretch:80%;
+    filter:drop-shadow(0 18px 22px var(--skygge-blød));
+    rotate:-.8deg;
+  }
+  .bon::after{
+    content:"";position:absolute;left:0;right:0;bottom:-11px;height:12px;
+    background:
+      linear-gradient(135deg, var(--bon-bg) 50%, transparent 50%) 0 0/12px 12px repeat-x,
+      linear-gradient(225deg, var(--bon-bg) 50%, transparent 50%) 0 0/12px 12px repeat-x;
+  }
+  .bon.print{animation:print .45s cubic-bezier(.2,.8,.2,1)}
+  @keyframes print{from{translate:0 -6px}to{translate:0 0}}
+  .bon-top{
+    display:grid;justify-items:center;gap:4px;text-align:center;
+    padding-bottom:14px;border-bottom:1.5px dashed var(--bon-streg);
+    text-transform:uppercase;letter-spacing:.08em;font-size:.74rem;font-weight:600;color:var(--bon-tekst2);
+  }
+  .bon-top .maerke{font-size:1.5rem;letter-spacing:-.03em;color:var(--bon-tekst)}
+  .bon-linjer{padding-block:8px}
+  .bon-linjer li{
+    display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1px 14px;
+    padding-block:7px;font-size:.98rem;font-weight:600;font-variant-numeric:tabular-nums;
+  }
+  .bon-linjer li > span:nth-child(2){text-align:right}
+  .bon-linjer .sub{grid-column:1/-1;color:var(--bon-tekst2);font-weight:500;font-size:.84rem}
+  .bon-linjer .tom{grid-column:1/-1;color:var(--bon-tekst2);font-weight:500}
+  .bon-total{
+    display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+    border-top:1.5px dashed var(--bon-streg);padding-top:12px;
+    text-transform:uppercase;font-weight:800;letter-spacing:.04em;
+  }
+  .bon-total b{font-size:1.9rem;font-stretch:100%;letter-spacing:-.02em;font-variant-numeric:tabular-nums;text-transform:none}
+  .bon-bund{margin-top:12px;text-align:center;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--bon-tekst2)}
+
+  /* Byg selv */
+  .bygger{
+    margin-top:30px;display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,.95fr);
+    grid-template-areas:"valg scene" "valg bon";
+    gap:20px clamp(24px,5vw,72px);align-items:start;
+  }
+  .bygger .valg{grid-area:valg;display:grid;gap:28px;min-width:0}
+  .bygger .bon{grid-area:bon}
+  .ret-valg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .kort{position:relative;display:flex}
+  .kort > span{
+    flex:1;display:grid;gap:2px;padding:16px 18px;cursor:pointer;
+    border:1.5px solid var(--linje);background:var(--bg);
+    transition:border-color .15s, background .15s, box-shadow .15s;
+  }
+  .kort b{font-family:var(--serif);font-weight:600;font-size:1.3rem;line-height:1.15;font-variation-settings:"opsz" 36}
+  .kort em{font-style:normal;font-weight:800;font-variant-numeric:tabular-nums}
+  .kort small{color:var(--tekst2);font-size:.9rem}
+  .kort:hover > span{border-color:var(--lime)}
+  .kort input:checked + span{border-color:var(--tekst);background:var(--flade);box-shadow:inset 0 0 0 1px var(--tekst)}
+  .kort input:focus-visible + span{outline:3px solid var(--lime);outline-offset:3px}
+  .fodnote{color:var(--tekst2);font-size:.95rem}
+
+  .scene{grid-area:scene;position:relative;aspect-ratio:1.3;width:100%;max-width:100%}
+  .scene .cirkel{position:absolute;left:50%;top:50%;width:82%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;background:var(--lime)}
+  .scene .ret-billede{
+    position:absolute;left:50%;top:50%;width:88%;
+    translate:-50% -50%;
+    filter:drop-shadow(0 22px 22px rgba(20,48,27,.3));
+    transition:opacity .35s, transform .55s cubic-bezier(.2,.9,.3,1.25);
+  }
+  .scene .ret-billede.skjult{opacity:0;transform:scale(.6) rotate(-24deg)}
+  .scene .ret-billede.lille{transform:scale(.8)}
+  .sovs{
+    position:absolute;right:6%;bottom:8%;width:17%;aspect-ratio:1;
+    border-radius:58% 42% 52% 48% / 46% 56% 44% 54%;
+    background:var(--sovs, var(--d-honey));
+    box-shadow:inset -6px -8px 0 color-mix(in srgb, black 12%, transparent), 0 10px 16px -6px var(--skygge-blød);
+    transition:background .35s;
+  }
+  .sovs.plask{animation:plask .5s cubic-bezier(.2,.9,.3,1.5)}
+  @keyframes plask{0%{transform:scale(.4) rotate(-30deg)}100%{transform:none}}
+  .sovs-navn{
+    position:absolute;right:2%;bottom:1%;
+    background:var(--bon-bg);color:var(--bon-tekst);
+    font-size:.78rem;font-weight:700;padding:4px 10px;border-radius:999px;white-space:nowrap;
+    box-shadow:0 6px 12px -6px var(--skygge-blød);
+  }
+  @media (max-width: 860px){
+    .bygger{grid-template-columns:minmax(0,1fr);grid-template-areas:"scene" "valg" "bon"}
+    .scene{max-width:480px;justify-self:center}
+  }
+  @media (max-width: 460px){.ret-valg{grid-template-columns:minmax(0,1fr)}}
+
+  /* Smør: husets ret + tallerken */
+  .husets{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);
+    align-items:center;margin-top:26px;
+    background:var(--lime);color:var(--skov);
+    padding:clamp(22px,3vw,40px);
+  }
+  .husets img{width:100%;filter:drop-shadow(0 22px 26px rgba(20,48,27,.3))}
+  .husets .linje1{display:flex;align-items:baseline;gap:12px}
+  .husets .navn{font-family:var(--serif);font-weight:600;font-size:clamp(1.6rem,2.6vw,2.2rem);font-variation-settings:"opsz" 60;line-height:1.05}
+  .husets .pris{font-weight:800;font-size:1.3rem;font-variant-numeric:tabular-nums;margin-left:auto;white-space:nowrap}
+  .husets p{margin-top:12px;max-width:30em}
+  .husets small{display:block;margin-top:14px;font-size:.92rem;opacity:.85}
+  @media (max-width: 700px){.husets{grid-template-columns:minmax(0,1fr)}.husets img{max-width:380px;margin-inline:auto}}
+
+  .laeg{
+    align-self:flex-start;margin-top:auto;
+    display:inline-flex;align-items:center;gap:8px;
+    background:none;border:1.5px solid var(--tekst);border-radius:999px;
+    padding:7px 14px 7px 12px;font-weight:700;font-size:.9rem;cursor:pointer;
+    transition:background .15s,border-color .15s,color .15s;
+  }
+  .laeg::before{content:"+";font-size:1.15rem;line-height:1;font-weight:800}
+  .laeg:hover{background:var(--lime);border-color:var(--lime);color:var(--skov)}
+  .laeg .antal{
+    display:none;min-width:22px;height:22px;padding-inline:6px;border-radius:999px;
+    background:var(--tekst);color:var(--bg);font-size:.78rem;line-height:22px;text-align:center;font-variant-numeric:tabular-nums;
+  }
+  .laeg.har .antal{display:inline-block}
+  .husets .laeg{margin-top:20px;background:var(--skov);border-color:var(--skov);color:var(--hvid)}
+  .husets .laeg:hover{background:var(--hvid);border-color:var(--hvid);color:var(--skov)}
+  .husets .laeg .antal{background:var(--lime);color:var(--skov)}
+  .smor-grid .ret .beskriv{margin-bottom:14px}
+  .medhjem{
+    margin-top:auto;align-self:flex-start;
+    display:inline-flex;align-items:center;padding:7px 14px;
+    border:1.5px dashed var(--linje);border-radius:999px;
+    font-size:.9rem;font-weight:700;color:var(--tekst2);
+  }
+
+  .smor-grid{margin-top:34px;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,370px);gap:clamp(28px,4vw,56px);align-items:start}
+  .smor-grid .retter{margin-top:0}
+  @media (max-width: 1180px) and (min-width: 1001px){.smor-grid .retter.to{grid-template-columns:minmax(0,1fr)}}
+  @media (max-width: 1000px){.smor-grid{grid-template-columns:minmax(0,1fr)}}
+
+  .tallerken-panel{
+    background:var(--flade);padding:clamp(20px,2.5vw,28px);
+    position:sticky;top:calc(env(safe-area-inset-top, 0px) + var(--top-h) + var(--fane-h) + 20px);
+    display:grid;gap:18px;min-width:0;
+  }
+  @media (max-width: 1000px){.tallerken-panel{position:static;max-width:560px;width:100%}}
+  @media (max-height: 820px){.tallerken-panel{position:static}}
+  .panel-hoved{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .panel-hoved h4{font-weight:800;font-stretch:125%;letter-spacing:-.02em;font-size:1.25rem}
+  .linkknap{background:none;border:0;padding:4px 0;cursor:pointer;font-weight:700;font-size:.92rem;border-bottom:2px solid var(--lime)}
+  .tallerken{
+    position:relative;justify-self:center;width:100%;max-width:270px;aspect-ratio:1;border-radius:50%;
+    background:radial-gradient(circle closest-side, var(--tallerken) 0 80%, var(--tallerken-kant) 81% 83%, var(--tallerken) 84% 100%);
+    box-shadow:0 20px 30px -14px var(--skygge-blød), inset 0 0 0 1px var(--tallerken-kant);
+  }
+  .tallerken.fuld{animation:ryst .4s}
+  @keyframes ryst{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+  .plads{position:absolute;width:40%;aspect-ratio:1.5;padding:0;border:0;background:none;cursor:pointer;border-radius:10px}
+  .plads:nth-child(1){left:30%;top:13%;rotate:-5deg}
+  .plads:nth-child(2){left:9%;top:49%;rotate:7deg}
+  .plads:nth-child(3){left:51%;top:49%;rotate:-9deg}
+  .plads .tom{
+    position:absolute;inset:8%;border:2px dashed var(--tallerken-tom);border-radius:10px;
+    display:grid;place-items:center;color:var(--tallerken-tom);font-weight:800;font-size:1.4rem;
+    transition:border-color .15s,color .15s;
+  }
+  .plads:hover .tom{border-color:var(--lime-moerk);color:var(--lime-moerk)}
+  .stykke{
+    position:absolute;inset:0;border-radius:9px;
+    background:
+      radial-gradient(circle at 18% 84%, var(--rug-prik) 0 3%, transparent 4%),
+      radial-gradient(circle at 80% 88%, var(--rug-prik) 0 3%, transparent 4%),
+      radial-gradient(circle at 50% 92%, var(--rug-prik) 0 2.5%, transparent 3.5%),
+      var(--rug);
+    box-shadow:0 8px 12px -6px var(--skygge-blød);
+  }
+  .stykke::before{
+    content:"";position:absolute;left:6%;right:6%;top:7%;bottom:24%;
+    border-radius:40% 46% 34% 42% / 52% 56% 40% 46%;
+    background:
+      radial-gradient(circle at 28% 42%, var(--p) 0 8%, transparent 9%),
+      radial-gradient(circle at 66% 30%, var(--p) 0 7%, transparent 8%),
+      radial-gradient(circle at 56% 68%, var(--p) 0 9%, transparent 10%),
+      radial-gradient(circle at 84% 58%, var(--p) 0 5%, transparent 6%),
+      var(--t);
+  }
+  .stykke.ny{animation:pop .45s cubic-bezier(.2,.9,.3,1.5)}
+  @keyframes pop{from{transform:scale(.3) translateY(-30px);opacity:0}to{transform:none;opacity:1}}
+  .navneskilt{
+    position:absolute;left:50%;bottom:-9%;translate:-50% 0;
+    background:var(--bon-bg);color:var(--bon-tekst);
+    font-size:.72rem;font-weight:700;line-height:1.2;padding:3px 9px;border-radius:999px;white-space:nowrap;
+    box-shadow:0 4px 10px -4px var(--skygge-blød);
+  }
+  .tallerken-pris{display:grid;justify-items:center;gap:6px;text-align:center}
+  .tallerken-pris .status-tekst{font-size:.95rem;color:var(--tekst2);max-width:24em;min-height:2.9em}
+  .tallerken-pris .stor{font-weight:900;font-stretch:125%;font-size:2.5rem;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+  .tallerken-pris .stor s{font-size:1.1rem;font-weight:600;color:var(--tekst2);letter-spacing:0;margin-right:8px}
+  .tallerken-pris .stor small{font-size:1rem;font-weight:700;letter-spacing:0}
+  .spar{background:var(--lime);color:var(--skov);padding:4px 12px;border-radius:999px;font-weight:800;font-size:.88rem}
+  .kombi{display:grid;gap:8px}
+  .kombi li{
+    display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+    padding:10px 14px;border:1.5px solid var(--linje);background:var(--bg);font-size:.92rem;line-height:1.35;
+    transition:border-color .2s, box-shadow .2s;
+  }
+  .kombi li span{color:var(--tekst2)}
+  .kombi li strong{font-variant-numeric:tabular-nums;font-size:1.05rem}
+  .kombi li.match{border-color:var(--tekst);box-shadow:inset 0 0 0 1px var(--tekst)}
+  .kombi li.match span{color:var(--tekst)}
+
+  /* Juicer */
+  .juice{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.85fr);grid-template-areas:"liste flaske";
+    gap:clamp(24px,5vw,72px);align-items:center;margin-top:8px;
+  }
+  .juice > div:first-child{grid-area:liste;min-width:0}
+  .juicevalg{margin-top:24px;display:grid;gap:10px}
+  .saft{position:relative;display:flex}
+  .saft > span{
+    flex:1;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:2px 14px;align-items:center;
+    padding:14px 18px;border:1.5px solid var(--linje);cursor:pointer;
+    transition:border-color .15s, background .15s, box-shadow .15s;
+  }
+  .saft i{grid-row:span 2;width:22px;height:22px;border-radius:50%;background:var(--sw);box-shadow:inset -3px -4px 0 color-mix(in srgb, black 14%, transparent)}
+  .saft b{font-family:var(--serif);font-weight:600;font-size:1.22rem;line-height:1.15;font-variation-settings:"opsz" 36}
+  .saft em{font-style:normal;font-weight:700;font-variant-numeric:tabular-nums}
+  .saft small{grid-column:2/-1;color:var(--tekst2);font-size:.95rem}
+  .saft:hover > span{border-color:var(--lime)}
+  .saft input:checked + span{border-color:var(--tekst);background:var(--flade);box-shadow:inset 0 0 0 1px var(--tekst)}
+  .saft input:focus-visible + span{outline:3px solid var(--lime);outline-offset:3px}
+  .flaske-scene{grid-area:flaske;position:relative;isolation:isolate;display:grid;justify-items:center;gap:6px;text-align:center;padding-block:10px}
+  .flaske-scene::before{
+    content:"";position:absolute;left:50%;top:40%;width:min(340px,86%);aspect-ratio:1;translate:-50% -50%;
+    border-radius:50%;background:var(--lime);z-index:-1;
+  }
+  .flaske{width:min(230px,58vw);height:auto;overflow:visible;--saft:var(--j-green)}
+  .flaske .vaeske{fill:var(--saft);transition:fill .5s}
+  .flaske .bagerst{opacity:.55}
+  .flaske .glas{fill:var(--glas);stroke:var(--glas-kant);stroke-width:2.5}
+  .flaske .lys{fill:var(--glas-lys)}
+  .flaske .laag{fill:var(--skov)}
+  .flaske .etiket{fill:var(--bon-bg)}
+  .flaske .etiket-maerke{fill:var(--bon-tekst);font-family:var(--sans);font-weight:900;font-stretch:125%;font-variation-settings:"wdth" 125;font-size:26px;letter-spacing:-1px}
+  .flaske .etiket-lille{fill:var(--bon-tekst2);font-family:var(--sans);font-weight:700;font-size:9.5px;letter-spacing:1.2px}
+  .flaske .etiket-blad{fill:var(--lime-moerk)}
+  .flaske .skygge{fill:var(--skygge-blød)}
+  .flaske-navn{font-family:var(--serif);font-weight:600;font-size:clamp(1.5rem,2.4vw,1.9rem);line-height:1.1;margin-top:6px;font-variation-settings:"opsz" 60}
+  .flaske-indhold{color:var(--tekst2);max-width:20em}
+  @media (prefers-reduced-motion: no-preference){
+    .flaske .boelge{animation:boelge 3.2s linear infinite}
+    .flaske .bagerst{animation-duration:4.6s;animation-direction:reverse}
+    .flaske .vaeske.skvulp{animation:skvulp .8s cubic-bezier(.2,.8,.2,1)}
+    @keyframes boelge{to{transform:translateX(-110px)}}
+    @keyframes skvulp{0%{transform:translateY(90px)}100%{transform:none}}
+  }
+  @media (max-width: 760px){
+    .juice{grid-template-columns:minmax(0,1fr);grid-template-areas:"flaske" "liste"}
+    .flaske{width:min(170px,46vw)}
+  }
+
+  /* Morgen */
+  .morgen{margin-top:26px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:24px clamp(24px,5vw,72px);align-items:start}
+  .morgen-valg{display:grid;min-width:0}
+  .morgenret{padding-block:20px;border-top:1px solid var(--linje)}
+  .morgenret:first-child{border-top:0;padding-top:0}
+  .morgenret .styr{margin-top:16px;display:grid;gap:14px}
+  @media (max-width: 860px){.morgen{grid-template-columns:minmax(0,1fr)}}
+  .morgen-tilbehoer{margin-top:40px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 40px;font-size:.98rem}
+  @media (max-width: 700px){.morgen-tilbehoer{grid-template-columns:minmax(0,1fr)}}
+  .morgen-tilbehoer div{display:grid;grid-template-columns:6.5em minmax(0,1fr);gap:12px;border-top:1px solid var(--linje);padding-top:12px}
+  .morgen-tilbehoer b{font-weight:700}
+  .morgen-tilbehoer span{color:var(--tekst2)}
+
+  /* Om KOLD */
+  .om .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,80px);align-items:start}
+  .om figure{margin:0;position:relative;isolation:isolate}
+  .om figure img{width:100%;box-shadow:var(--skygge)}
+  .om figure::before{
+    content:"";position:absolute;left:-16px;top:24px;right:16px;bottom:-24px;
+    background:var(--lime);z-index:-1;
+  }
+  .om figcaption{margin-top:14px;color:var(--tekst2);font-size:.95rem}
+  .om .tekst{display:grid;gap:22px;min-width:0}
+  .om .tekst h3{
+    font-family:var(--serif);font-weight:600;font-size:1.45rem;line-height:1.2;
+    font-variation-settings:"opsz" 48;margin-top:10px;
+  }
+  .om .tekst p{max-width:36em}
+  .om blockquote{
+    margin:8px 0 0;padding-left:20px;border-left:4px solid var(--lime);
+    font-family:var(--serif);font-style:italic;font-weight:300;
+    font-variation-settings:"opsz" 72;font-size:clamp(1.3rem,2vw,1.7rem);line-height:1.3;
+  }
+  .om blockquote cite{display:block;margin-top:12px;font-family:var(--sans);font-style:normal;font-weight:600;font-size:.95rem;color:var(--tekst2)}
+  @media (max-width: 860px){
+    .om .wrap{grid-template-columns:minmax(0,1fr)}
+    .om figure{max-width:420px;margin-left:16px}
+  }
+
+  /* Catering */
+  .catering{background:var(--flade);border-top:1px solid var(--linje)}
+  .catering .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:center}
+  .catering .wrap > div{min-width:0}
+  .catering p{max-width:34em;margin-top:16px}
+  .catering .handling{margin-top:28px;display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center}
+  .catering figure{margin:0}
+  .catering figure img{width:100%;box-shadow:var(--skygge)}
+  @media (max-width: 860px){.catering .wrap{grid-template-columns:minmax(0,1fr)}}
+
+  /* Find os */
+  .find .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,5vw,80px);align-items:start}
+  .find .wrap > div{min-width:0}
+  .find .stor{
+    font-weight:800;font-stretch:125%;letter-spacing:-.03em;
+    font-size:clamp(1.9rem,4vw,3.2rem);line-height:1.02;
+    margin-top:18px;text-decoration:none;display:block;max-width:12em;
+    transition:color .15s;
+  }
+  .find .stor:hover{color:var(--lime-moerk)}
+  .find .kontakt{margin-top:22px;display:grid;gap:10px;font-size:1.05rem}
+  .find .kontakt a{text-decoration:none;border-bottom:2px solid var(--lime)}
+  .find .kontakt span{color:var(--tekst2)}
+  .mail-linje{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+  .kopier{background:none;border:1.5px solid var(--linje);border-radius:999px;padding:4px 12px;font-size:.85rem;font-weight:700;cursor:pointer}
+  .kopier:hover{border-color:var(--lime)}
+  .tider{border-top:2px solid var(--tekst);padding-top:14px}
+  .tider h3{font-weight:800;font-stretch:125%;font-size:1.3rem;letter-spacing:-.02em}
+  .tider .status{margin-top:14px}
+  .tider table{width:100%;border-collapse:collapse;margin-top:14px;font-variant-numeric:tabular-nums}
+  .tider td{padding:11px 0;border-bottom:1px solid var(--linje)}
+  .tider td:first-child{padding-left:12px;border-left:3px solid transparent}
+  .tider td:last-child{text-align:right;font-weight:600}
+  .tider .lukket td:last-child{color:var(--tekst2);font-weight:500}
+  .tider tr.idag td{font-weight:800}
+  .tider tr.idag td:first-child{border-left-color:var(--lime)}
+  .tider tr.idag td:first-child::after{content:" · i dag";font-weight:600;color:var(--tekst2)}
+  @media (max-width: 760px){.find .wrap{grid-template-columns:minmax(0,1fr)}}
+
+  footer{border-top:1px solid var(--linje)}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 32px;padding-block:32px}
+  footer .maerke{font-size:1.6rem}
+  footer .slogan{font-family:var(--serif);font-style:italic;font-weight:300;font-variation-settings:"opsz" 36;font-size:1.15rem}
+  footer .lille{color:var(--tekst2);font-size:.92rem}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{transition-duration:.01ms !important}
+  }
+</style>
+</head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="blad" viewBox="0 0 24 24"><path d="M12.5 2.5C5.5 6.2 3.2 13.6 6.4 21.2 13.8 18.4 16.8 10.8 12.5 2.5Z"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="maerke" href="#top" aria-label="KOLD – til toppen">K<span class="o">O<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.5 2.5C5.5 6.2 3.2 13.6 6.4 21.2 13.8 18.4 16.8 10.8 12.5 2.5Z"/><path class="stilk" d="M6.4 21.2C8.6 15.6 10.4 11.2 12.3 6.2"/></svg></span>LD</a>
+    <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Sidens sektioner">
+      <a href="#menukort">Menukort</a>
+      <a href="#om">Om KOLD</a>
+      <a href="#catering">Catering</a>
+      <a class="cta" href="#kontakt">Find os</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="tekst">
+        <p class="status" data-status hidden><span class="prik" aria-hidden="true"></span><span data-status-tekst>Se åbningstider nederst</span></p>
+        <h1>
+          <span class="linje">Frisklavet.</span>
+          <span class="linje">Gennemtænkt.</span>
+          <span class="linje"><span class="maerke" aria-label="KOLD">K<span class="o">O<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.5 2.5C5.5 6.2 3.2 13.6 6.4 21.2 13.8 18.4 16.8 10.8 12.5 2.5Z"/><path class="stilk" d="M6.4 21.2C8.6 15.6 10.4 11.2 12.3 6.2"/></svg></span>LD</span></span>
+        </h1>
+        <p class="under">Sandwich, pasta, smørrebrød og friskpresset juice – lavet fra bunden i Åbyhøj. Med erfaring fra Noma og Jordnær, lige til hverdagen og lige til at tage med.</p>
+        <div class="handling">
+          <a class="knap" href="#menukort">Se menukortet</a>
+          <a class="adresse-link" href="https://maps.google.com/?q=Henrik+Hertz+Vej+74,+8230+%C3%85byh%C3%B8j" target="_blank" rel="noopener">Henrik Hertz Vej 74, Åbyhøj</a>
+        </div>
+      </div>
+      <div class="billede" id="heroBillede" aria-hidden="true">
+        <div class="cirkel"></div>
+        <svg class="stempel" viewBox="0 0 200 200">
+          <defs><path id="stempelRing" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs>
+          <circle class="bund" cx="100" cy="100" r="98"/>
+          <g class="ring"><text><textPath href="#stempelRing" textLength="462" lengthAdjust="spacing">FRISKLAVET HVER DAG · HENRIK HERTZ VEJ 74 · ÅBYHØJ ·</textPath></text></g>
+          <use href="#blad" class="blad" x="72" y="72" width="56" height="56" transform="rotate(-18 100 100)"/>
+        </svg>
+        <img src="fisk.webp" width="800" height="521" alt="">
+      </div>
+    </div>
+  </section>
+
+  <div class="baand" aria-label="Fra menukortet">
+    <div class="spor">
+      <span>Frisklavet</span><svg aria-hidden="true"><use href="#blad"/></svg>
+      <span>SMÖR</span><svg aria-hidden="true"><use href="#blad"/></svg>
+      <span>KOLD sandwich</span><svg aria-hidden="true"><use href="#blad"/></svg>
+      <span>Pasta</span><svg aria-hidden="true"><use href="#blad"/></svg>
+      <span>Friskpresset juice</span><svg aria-hidden="true"><use href="#blad"/></svg>
+      <span>Masser af umami</span><svg aria-hidden="true"><use href="#blad"/></svg>
+      <span>Lige til at tage med</span><svg aria-hidden="true"><use href="#blad"/></svg>
+    </div>
+    <div class="spor" aria-hidden="true">
+      <span>Frisklavet</span><svg><use href="#blad"/></svg>
+      <span>SMÖR</span><svg><use href="#blad"/></svg>
+      <span>KOLD sandwich</span><svg><use href="#blad"/></svg>
+      <span>Pasta</span><svg><use href="#blad"/></svg>
+      <span>Friskpresset juice</span><svg><use href="#blad"/></svg>
+      <span>Masser af umami</span><svg><use href="#blad"/></svg>
+      <span>Lige til at tage med</span><svg><use href="#blad"/></svg>
+    </div>
+  </div>
+
+  <section class="fakta" aria-label="Det korte om KOLD">
+    <div class="wrap">
+      <div>
+        <h3>Frisk fisk hver morgen</h3>
+        <p>Fiskehuset leverer fiskefilet til os hver dag, så fiskefilleten altid er dagsfrisk.</p>
+      </div>
+      <div>
+        <h3>Erfaring fra Noma og Jordnær</h3>
+        <p>Vores signaturdressinger og mayo er udviklet med dybde, balance og umami fra det gastronomiske køkken.</p>
+      </div>
+      <div>
+        <h3>Du bestemmer kombinationen</h3>
+        <p>Byg selv din sandwich og pasta: brød, dressing, grønt og toppings – vi samler den frisk til dig.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sektion menu" id="menukort">
+    <div class="wrap menu-hoved">
+      <div>
+        <h2 class="overskrift">Menukort</h2>
+        <p class="indledning">Hos KOLD arbejder vi med gode råvarer, masser af smag og kærlighed til håndværket. Fra frisklavede sandwiches og pasta til vores SMÖR – hver ret er sammensat med fokus på smag, kvalitet og de små detaljer.</p>
+      </div>
+      <p class="menu-note" id="menuNote">Menukortet med retter og priser kommer snart. Indtil da kan du se dagens udvalg i disken på Henrik Hertz Vej 74.</p>
+    </div>
+
+    <div class="wrap snart" id="menuSnart">
+      <div class="kat-liste" id="katListe">
+        <div class="kat aaben" data-kat="smor">
+          <button type="button" aria-expanded="true" aria-controls="kat-smor"><b>SMÖR</b><small>Vores fortolkning af det klassiske smørrebrød</small><span class="pil" aria-hidden="true">+</span></button>
+          <div class="indhold" id="kat-smor"><div>
+            <p>Hos KOLD giver vi det klassiske smørrebrød et moderne twist, hvor danske favoritter møder nye smage, gode råvarer og vores egne signaturer – fra klassiske favoritter til kreative fortolkninger med hjemmelavede signaturdressinger, signaturmayonnaise og nøje udvalgte toppings.</p>
+            <p>I tæt samarbejde med Fiskehuset får vi frisk fiskefilet leveret hver morgen.</p>
+          </div></div>
+        </div>
+        <div class="kat" data-kat="sandwich">
+          <button type="button" aria-expanded="false" aria-controls="kat-sandwich"><b>KOLD sandwich</b><small>Lyst eller groft brød – du sammensætter selv</small><span class="pil" aria-hidden="true">+</span></button>
+          <div class="indhold" id="kat-sandwich"><div>
+            <p>Vi kombinerer saftigt fyld med sprøde grøntsager, frisk salat og vores hjemmelavede signaturdressinger, som giver hver sandwich sit eget KOLD-udtryk.</p>
+            <p>Du vælger selv mellem lyst eller groft brød og kan sammensætte din sandwich efter din smag.</p>
+          </div></div>
+        </div>
+        <div class="kat" data-kat="pasta">
+          <button type="button" aria-expanded="false" aria-controls="kat-pasta"><b>Pasta</b><small>KOLDs moderne fortolkning</small><span class="pil" aria-hidden="true">+</span></button>
+          <div class="indhold" id="kat-pasta"><div>
+            <p>To forskellige pastavarianter, som du selv sammensætter. Vælg din pasta, din favorit blandt vores signaturdressinger og afslut med toppings og friske salater.</p>
+            <p>Dressingerne er inspireret af det gastronomiske køkken og udviklet med fokus på dybde, balance og umami.</p>
+          </div></div>
+        </div>
+        <div class="kat" data-kat="juice">
+          <button type="button" aria-expanded="false" aria-controls="kat-juice"><b>Juicer og snacks</b><small>Friskpresset med sæsonens råvarer</small><span class="pil" aria-hidden="true">+</span></button>
+          <div class="indhold" id="kat-juice"><div>
+            <p>Friskpresset med fokus på balance, friskhed og naturlig sødme – nøje sammensat af frugt, grønt og aromatiske råvarer.</p>
+            <p>Vi kombinerer sæsonens råvarer, så hver juice er skabt med fokus på smag, friskhed og balance.</p>
+          </div></div>
+        </div>
+      </div>
+      <div class="snart-scene" aria-hidden="true">
+        <div class="cirkel"></div>
+        <span class="snart-maerke">Menukort kommer snart<small>Retter og priser er på vej</small></span>
+        <img data-kat="smor" src="fisk.webp" width="800" height="521" alt="">
+        <img class="skjult" data-kat="sandwich" src="sandwich.webp" width="726" height="378" alt="">
+        <img class="skjult" data-kat="pasta" src="pasta.webp" width="800" height="533" alt="">
+        <img class="skjult" data-kat="juice" src="juice.webp" width="800" height="560" alt="">
+      </div>
+    </div>
+
+    <!-- Det fulde, interaktive menukort. Skjult indtil retter og priser er bekræftet.
+         Se det med #forhaandsvisning sidst i adressen. Gå live: fjern hidden her og slet #menuSnart. -->
+    <div id="fuldtMenukort" hidden>
+    <div class="fanebar-holder">
+      <div class="wrap">
+        <nav class="fanebar" id="fanebar" aria-label="Kategorier på menukortet">
+          <span class="markoer" aria-hidden="true"></span>
+          <a href="#bygselv">Byg selv <small>2</small></a>
+          <a href="#smor">Smør <small>7</small></a>
+          <a href="#juicer">Juicer <small>4</small></a>
+          <a href="#morgen">Morgen <small>2</small></a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <!-- Byg selv -->
+      <div class="gruppe" id="bygselv">
+        <div class="gruppe-hoved">
+          <h3>Byg selv</h3>
+          <span class="note">Sandwich og pasta</span>
+        </div>
+        <p class="intro">Du bestemmer kombinationen – vi sørger for de gode råvarer, gennemtænkte smage og kvalitet i hver portion.</p>
+
+        <form class="bygger" id="bygger" novalidate>
+          <div class="valg">
+            <fieldset class="trin">
+              <legend><span class="nr">1</span>Vælg ret</legend>
+              <div class="ret-valg">
+                <label class="kort"><input class="vh" type="radio" name="ret" id="ret-sandwich" value="sandwich" checked><span><b>KOLD Sandwich</b><em>72 kr.</em><small>Lyst eller groft brød</small></span></label>
+                <label class="kort"><input class="vh" type="radio" name="ret" id="ret-pasta" value="pasta"><span><b>KOLD Pasta</b><em>54 / 80 kr.</em><small>Lille eller stor skål</small></span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="trin" data-kun="sandwich">
+              <legend><span class="nr">2</span>Brød</legend>
+              <div class="chips">
+                <label class="chip"><input class="vh" type="radio" name="broed" id="broed-groft" value="Groft brød" checked><span>Groft</span></label>
+                <label class="chip"><input class="vh" type="radio" name="broed" id="broed-lyst" value="Lyst brød"><span>Lyst</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="trin" data-kun="pasta" hidden>
+              <legend><span class="nr">2</span>Størrelse og pasta</legend>
+              <div class="chips">
+                <label class="chip"><input class="vh" type="radio" name="str" id="str-lille" value="lille"><span>Lille <em>54</em></span></label>
+                <label class="chip"><input class="vh" type="radio" name="str" id="str-stor" value="stor" checked><span>Stor <em>80</em></span></label>
+              </div>
+              <div class="chips">
+                <label class="chip"><input class="vh" type="radio" name="pasta" id="pasta-regnbue" value="Regnbueskruer" checked><span>Regnbueskruer</span></label>
+                <label class="chip"><input class="vh" type="radio" name="pasta" id="pasta-fuldkorn" value="Fuldkornsskruer"><span>Fuldkornsskruer</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="trin">
+              <legend><span class="nr">3</span>Signaturdressing</legend>
+              <div class="chips">
+                <label class="chip"><input class="vh" type="radio" name="dressing" id="dr-honey" value="Honey Potli" data-farve="var(--d-honey)" checked><span><i style="--sw:var(--d-honey)"></i>Honey Potli</span></label>
+                <label class="chip"><input class="vh" type="radio" name="dressing" id="dr-chili" value="Chilipaste" data-farve="var(--d-chili)"><span><i style="--sw:var(--d-chili)"></i>Chilipaste</span></label>
+                <label class="chip"><input class="vh" type="radio" name="dressing" id="dr-creme" value="Crème fraiche" data-farve="var(--d-creme)"><span><i style="--sw:var(--d-creme)"></i>Crème fraiche</span></label>
+                <label class="chip"><input class="vh" type="radio" name="dressing" id="dr-karry" value="Karry" data-farve="var(--d-karry)"><span><i style="--sw:var(--d-karry)"></i>Karry</span></label>
+                <label class="chip"><input class="vh" type="radio" name="dressing" id="dr-pesto" value="Pesto" data-farve="var(--d-pesto)"><span><i style="--sw:var(--d-pesto)"></i>Pesto</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="trin">
+              <legend><span class="nr">4</span>Tilkøb og antal</legend>
+              <label class="flueben" data-kun="sandwich"><input type="checkbox" id="ekstra-broed"> Ekstra brød <em>+5 kr.</em></label>
+              <label class="flueben" data-kun="pasta" hidden><input type="checkbox" id="pesto-broed"> Brændt brød med pesto <em>+10 kr.</em></label>
+              <div class="styr-linje">
+                <span>Antal</span>
+                <div class="stepper" id="byg-antal" data-min="1" data-max="30" data-vaerdi="1">
+                  <button type="button" data-trin="-1" aria-label="Færre">−</button>
+                  <output aria-live="polite">1</output>
+                  <button type="button" data-trin="1" aria-label="Flere">+</button>
+                </div>
+              </div>
+            </fieldset>
+            <p class="fodnote">Friske grøntsager og sprøde toppings vælger du ved disken.</p>
+          </div>
+
+          <div class="scene" aria-hidden="true">
+            <div class="cirkel"></div>
+            <img class="ret-billede" data-ret="sandwich" src="sandwich.webp" width="726" height="378" alt="">
+            <img class="ret-billede skjult" data-ret="pasta" src="pasta.webp" width="800" height="533" alt="">
+            <span class="sovs" id="sovs"></span>
+            <span class="sovs-navn" id="sovsNavn">Honey Potli</span>
+          </div>
+
+          <div class="bon" id="bygBon">
+            <div class="bon-top">
+              <span class="maerke">K<span class="o">O<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.5 2.5C5.5 6.2 3.2 13.6 6.4 21.2 13.8 18.4 16.8 10.8 12.5 2.5Z"/><path class="stilk" d="M6.4 21.2C8.6 15.6 10.4 11.2 12.3 6.2"/></svg></span>LD</span>
+              <span>Henrik Hertz Vej 74 · 8230 Åbyhøj</span>
+            </div>
+            <ul class="bon-linjer" id="bygLinjer">
+              <li><span>1 × KOLD Sandwich</span><span>72,00</span><span class="sub">Groft brød · Honey Potli</span></li>
+            </ul>
+            <div class="bon-total"><span>I alt</span><b><span id="bygTotal">72,00</span> kr.</b></div>
+            <p class="bon-bund">Bestil ved disken</p>
+          </div>
+        </form>
+      </div>
+
+      <!-- Smør -->
+      <div class="gruppe" id="smor">
+        <div class="gruppe-hoved">
+          <h3>Smør</h3>
+          <span class="note">Klassikere med et twist</span>
+        </div>
+        <p class="intro">Det klassiske smørrebrød med et moderne twist, hvor danske favoritter møder nye smage, hjemmelavede signaturdressinger og nøje udvalgte toppings.</p>
+
+        <div class="husets">
+          <img src="fisk.webp" width="800" height="521" alt="KOLDs fiskefillet med rejer, rogn og dild på rugbrød">
+          <div>
+            <div class="linje1"><span class="navn">KOLDs Fiskefillet</span><span class="pris">99</span></div>
+            <p>Frisk fisk fra Fiskehuset. Fiskefillet, signaturcitronmayo, remoulade, håndpillede rejer, rogn, grønt og urter.</p>
+            <small>Serveres med aspargessauce: sort caviar, agurk, grøn olie og dild.</small>
+            <button class="laeg" type="button" data-laeg="fisk">Læg på tallerkenen <span class="antal"></span></button>
+          </div>
+        </div>
+
+        <div class="smor-grid">
+          <ul class="retter to">
+            <li class="ret">
+              <div class="linje1"><span class="navn">Høbagt kartoffel</span><span class="leder"></span><span class="pris">65</span></div>
+              <p class="beskriv">Høbagt dansk kartoffel, trøffelmayo, syltede rødløg, sesam, karse og sæsonens urter.</p>
+              <button class="laeg" type="button" data-laeg="kartoffel">Læg på <span class="antal"></span></button>
+            </li>
+            <li class="ret">
+              <div class="linje1"><span class="navn">Oksetartar</span><span class="leder"></span><span class="pris">65</span></div>
+              <p class="beskriv">Oksemørbrad, kapers, skalotteløg, æggeblomme, aioli og sæsonens urter.</p>
+              <button class="laeg" type="button" data-laeg="tartar">Læg på <span class="antal"></span></button>
+            </li>
+            <li class="ret">
+              <div class="linje1"><span class="navn">Æg &amp; rejer</span><span class="leder"></span><span class="pris">65</span></div>
+              <p class="beskriv">Danske fjordrejer, signatur-citrondildmayo, karse, forårsløg og sæsonens urter.</p>
+              <button class="laeg" type="button" data-laeg="aeg">Læg på <span class="antal"></span></button>
+            </li>
+            <li class="ret">
+              <div class="linje1"><span class="navn">Spicy tun</span><span class="leder"></span><span class="pris">65</span></div>
+              <p class="beskriv">Tunsalat, peberfrugt, majs, løg, jalapeño, kapers og jalapeño-mayo.</p>
+              <button class="laeg" type="button" data-laeg="tun">Læg på <span class="antal"></span></button>
+            </li>
+            <li class="ret">
+              <div class="linje1"><span class="navn">Roastbeef</span><span class="leder"></span><span class="pris">65</span></div>
+              <p class="beskriv">Remoulade, ristede løg, aioli, rødløg og sæsonens urter.</p>
+              <button class="laeg" type="button" data-laeg="roastbeef">Læg på <span class="antal"></span></button>
+            </li>
+            <li class="ret">
+              <div class="linje1"><span class="navn">KOLD Chilipaste</span><span class="leder"></span><span class="pris">60</span></div>
+              <p class="beskriv">Husets hjemmelavede chilipaste – KOLD-signatur, gastronomisk inspireret. Tag et glas med hjem.</p>
+              <span class="medhjem">Glas til at tage med</span>
+            </li>
+          </ul>
+
+          <aside class="tallerken-panel" aria-labelledby="tallerkenTitel">
+            <div class="panel-hoved">
+              <h4 id="tallerkenTitel">Sæt en tallerken sammen</h4>
+              <button class="linkknap" type="button" id="ryd">Ryd</button>
+            </div>
+            <div class="tallerken" id="tallerken">
+              <button class="plads" type="button"></button>
+              <button class="plads" type="button"></button>
+              <button class="plads" type="button"></button>
+            </div>
+            <div class="tallerken-pris" aria-live="polite">
+              <p class="status-tekst" id="tStatus">Tallerkenpris: 1 fiskefillet + 2 smørrebrød.</p>
+              <p class="stor"><s id="tStk">229</s><span id="tPris">180</span> <small>kr.</small></p>
+              <span class="spar" id="tSpar">Du sparer 49 kr.</span>
+            </div>
+            <ol class="kombi" aria-label="Tallerkenpriser">
+              <li data-kombi="1"><span>1 fiskefillet + 2 frit valgte smørrebrød</span><strong>180</strong></li>
+              <li data-kombi="0"><span>3 frit valgte smørrebrød</span><strong>180</strong></li>
+              <li data-kombi="3"><span>3 × fiskefillet</span><strong>250</strong></li>
+            </ol>
+          </aside>
+        </div>
+      </div>
+
+      <!-- Juicer -->
+      <div class="gruppe" id="juicer">
+        <div class="gruppe-hoved">
+          <h3>Friskpressede juicer</h3>
+          <span class="note">60 kr. pr. stk.</span>
+        </div>
+        <div class="juice">
+          <div>
+            <p class="intro">Sæsonens frugt og grønt, presset samme dag. Hver kombination er lavet med fokus på balance, friskhed og naturlig sødme.</p>
+            <div class="juicevalg" role="radiogroup" aria-label="Vælg juice">
+              <label class="saft"><input class="vh" type="radio" name="juice" id="juice-appelsin" value="Appelsin" data-farve="var(--j-appelsin)"><span><i style="--sw:var(--j-appelsin)"></i><b>Appelsin</b><em>60</em><small>100 % friskpresset appelsin.</small></span></label>
+              <label class="saft"><input class="vh" type="radio" name="juice" id="juice-green" value="Green Power" data-farve="var(--j-green)" checked><span><i style="--sw:var(--j-green)"></i><b>Green Power</b><em>60</em><small>Æble, ingefær og spinat.</small></span></label>
+              <label class="saft"><input class="vh" type="radio" name="juice" id="juice-gulerod" value="Gulerod &amp; appelsin" data-farve="var(--j-gulerod)"><span><i style="--sw:var(--j-gulerod)"></i><b>Gulerod &amp; appelsin</b><em>60</em><small>Friskpresset gulerod og appelsin.</small></span></label>
+              <label class="saft"><input class="vh" type="radio" name="juice" id="juice-grape" value="Grapefrugt" data-farve="var(--j-grape)"><span><i style="--sw:var(--j-grape)"></i><b>Grapefrugt</b><em>60</em><small>Friskpresset grape – syrlig og frisk.</small></span></label>
+            </div>
+          </div>
+          <div class="flaske-scene">
+            <svg class="flaske" id="flaske" viewBox="0 0 220 390" role="img" aria-label="Flaske med Green Power">
+              <defs>
+                <clipPath id="flaskeIndre"><path d="M80 36 H140 V66 C140 96 181 108 181 144 V338 Q181 361 158 361 H62 Q39 361 39 338 V144 C39 108 80 96 80 66 Z"/></clipPath>
+              </defs>
+              <ellipse class="skygge" cx="110" cy="376" rx="80" ry="9"/>
+              <g clip-path="url(#flaskeIndre)">
+                <g class="vaeske" id="vaeske">
+                  <g transform="translate(0 128)"><path class="boelge bagerst" d="M0 0 Q27.5 -10 55 0 T110 0 T165 0 T220 0 T275 0 T330 0 T385 0 T440 0 V260 H0 Z"/></g>
+                  <g transform="translate(0 134)"><path class="boelge" d="M0 0 Q27.5 -8 55 0 T110 0 T165 0 T220 0 T275 0 T330 0 T385 0 T440 0 V260 H0 Z"/></g>
+                </g>
+              </g>
+              <path class="glas" d="M75 30 H145 V64 C145 94 186 106 186 142 V338 Q186 366 158 366 H62 Q34 366 34 338 V142 C34 106 75 94 75 64 Z"/>
+              <rect class="lys" x="50" y="150" width="11" height="176" rx="5.5"/>
+              <rect class="laag" x="70" y="12" width="80" height="24" rx="6"/>
+              <rect class="etiket" x="58" y="214" width="104" height="84" rx="4"/>
+              <use href="#blad" class="etiket-blad" x="100" y="222" width="20" height="20" transform="rotate(-18 110 232)"/>
+              <text class="etiket-maerke" x="110" y="270" text-anchor="middle">KOLD</text>
+              <text class="etiket-lille" x="110" y="288" text-anchor="middle">FRISKPRESSET</text>
+            </svg>
+            <p class="flaske-navn" id="juiceNavn">Green Power</p>
+            <p class="flaske-indhold" id="juiceIndhold">Æble, ingefær og spinat.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Morgen -->
+      <div class="gruppe" id="morgen">
+        <div class="gruppe-hoved">
+          <h3>Morgen</h3>
+          <span class="note">En god start på dagen</span>
+        </div>
+        <div class="morgen">
+          <div class="morgen-valg">
+            <div class="ret morgenret">
+              <div class="linje1"><span class="navn">Rundstykker</span><span class="leder"></span><span class="pris">15 · 2 for 25</span></div>
+              <p class="beskriv">Håndværkere – sprøde udenpå, luftige indeni. Friskbagt hver dag.</p>
+              <div class="styr">
+                <div class="styr-linje">
+                  <span>Antal rundstykker</span>
+                  <div class="stepper" id="m-rund" data-min="0" data-max="40" data-vaerdi="2">
+                    <button type="button" data-trin="-1" aria-label="Færre rundstykker">−</button>
+                    <output aria-live="polite">2</output>
+                    <button type="button" data-trin="1" aria-label="Flere rundstykker">+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ret morgenret">
+              <div class="linje1"><span class="navn">Kaffe</span><span class="leder"></span><span class="pris">25</span></div>
+              <p class="beskriv">Friskbrygget kvalitetskaffe.</p>
+              <div class="styr">
+                <div class="chips" role="radiogroup" aria-label="Kaffe">
+                  <label class="chip"><input class="vh" type="radio" name="kaffe" id="kaffe-sort" value="Sort kaffe"><span>Sort kaffe</span></label>
+                  <label class="chip"><input class="vh" type="radio" name="kaffe" id="kaffe-latte" value="Café latte"><span>Café latte</span></label>
+                  <label class="chip"><input class="vh" type="radio" name="kaffe" id="kaffe-cappuccino" value="Cappuccino" checked><span>Cappuccino</span></label>
+                  <label class="chip"><input class="vh" type="radio" name="kaffe" id="kaffe-cortado" value="Cortado"><span>Cortado</span></label>
+                  <label class="chip"><input class="vh" type="radio" name="kaffe" id="kaffe-americano" value="Americano"><span>Americano</span></label>
+                </div>
+                <div class="styr-linje">
+                  <span>Antal kopper</span>
+                  <div class="stepper" id="m-kaffe" data-min="0" data-max="40" data-vaerdi="1">
+                    <button type="button" data-trin="-1" aria-label="Færre kopper">−</button>
+                    <output aria-live="polite">1</output>
+                    <button type="button" data-trin="1" aria-label="Flere kopper">+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bon" id="morgenBon">
+            <div class="bon-top">
+              <span class="maerke">K<span class="o">O<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.5 2.5C5.5 6.2 3.2 13.6 6.4 21.2 13.8 18.4 16.8 10.8 12.5 2.5Z"/><path class="stilk" d="M6.4 21.2C8.6 15.6 10.4 11.2 12.3 6.2"/></svg></span>LD</span>
+              <span>Morgen · Henrik Hertz Vej 74</span>
+            </div>
+            <ul class="bon-linjer" id="morgenLinjer">
+              <li><span>2 × Rundstykke</span><span>25,00</span><span class="sub">2 for 25</span></li>
+              <li><span>1 × Cappuccino</span><span>25,00</span></li>
+            </ul>
+            <div class="bon-total"><span>I alt</span><b><span id="morgenTotal">50,00</span> kr.</b></div>
+            <p class="bon-bund">Ost, smør og marmelade vælger du ved disken</p>
+          </div>
+        </div>
+        <div class="morgen-tilbehoer" aria-label="Tilbehør til rundstykket">
+          <div><b>Ost</b><span>Mild, mellemlagret, stærk lagret eller brie – fra Arla og Président</span></div>
+          <div><b>Smør</b><span>Kærgården eller Lurpak</span></div>
+          <div><b>Marmelade</b><span>Jordbær, solbær eller abrikos</span></div>
+          <div><b>Kaffe</b><span>Sort kaffe, café latte, cappuccino, cortado eller americano</span></div>
+          <div><b>Mælk</b><span>Minimælk, letmælk, sødmælk – og kaffefløde til kaffen</span></div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="sektion om" id="om">
+    <div class="wrap">
+      <figure>
+        <img src="portraet.webp" width="800" height="1186" alt="Køkkenchefen sliber en kniv i KOLDs køkken">
+        <figcaption>Køkkenet hos KOLD, Henrik Hertz Vej 74.</figcaption>
+      </figure>
+      <div class="tekst">
+        <h2 class="overskrift">Moderne delikatesse og frisklavet takeaway</h2>
+        <p>Hos KOLD forener vi stolte madtraditioner med moderne gastronomi. Med erfaring fra bl.a. Noma og Jordnær skaber vi frisklavede sandwiches, pasta, nytænkte smørrebrød og friskpressede juicer.</p>
+        <blockquote>Vores signaturdressinger er inspireret af vores erfaring fra Michelin-køkkenet, hvor vi arbejder med dybde, balance og umami.</blockquote>
+        <p>Vi tror på gode råvarer, gennemtænkte smage og kvalitet i hver eneste detalje. Lige til hverdagen. Lige til at tage med. Altid med KOLDs kærlighed til smag.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sektion catering" id="catering">
+    <div class="wrap">
+      <div>
+        <h2 class="overskrift">Catering &amp; frokost til virksomheder</h2>
+        <p class="indledning">Gør frokostpausen til noget, man glæder sig til.</p>
+        <p>Vi laver frisklavede frokostløsninger og catering til virksomheder – med fokus på gode råvarer, gennemtænkte smage og variation. Fra sandwiches og SMÖR til salater, pasta og snacks sammensætter vi løsninger, der passer til jeres hverdag, møder og arrangementer.</p>
+        <div class="handling">
+          <a class="knap" href="mailto:info@koldaarhus.dk?subject=Frokostordning%20eller%20catering">Skriv til os om frokost</a>
+          <span>eller kom forbi og sig hej – så garanterer vi et godt samarbejde.</span>
+        </div>
+      </div>
+      <figure>
+        <img src="banner.webp" width="1200" height="509" alt="Sandwich med skinke, avocado og tomat ved siden af en flaske appelsinjuice">
+      </figure>
+    </div>
+  </section>
+
+  <section class="sektion find" id="kontakt">
+    <div class="wrap">
+      <div>
+        <h2 class="overskrift">Find os i Åbyhøj</h2>
+        <a class="stor" href="https://maps.google.com/?q=Henrik+Hertz+Vej+74,+8230+%C3%85byh%C3%B8j" target="_blank" rel="noopener">Henrik Hertz Vej 74, 8230 Åbyhøj</a>
+        <div class="kontakt">
+          <div class="mail-linje"><a href="mailto:info@koldaarhus.dk" id="mail">info@koldaarhus.dk</a><button class="kopier" type="button" id="kopier">Kopiér</button></div>
+          <div><span>Telefon kommer snart</span></div>
+          <div><a href="https://maps.google.com/?q=Henrik+Hertz+Vej+74,+8230+%C3%85byh%C3%B8j" target="_blank" rel="noopener">Åbn i Google Maps</a></div>
+        </div>
+      </div>
+      <div class="tider">
+        <h3>Åbningstider</h3>
+        <p class="status" data-status hidden><span class="prik" aria-hidden="true"></span><span data-status-tekst>Åbningstider</span></p>
+        <p class="tider-snart" id="tiderSnart">Åbningstiderne kommer snart. Skriv til os, hvis du vil vide mere.</p>
+        <!-- Tabellen er den eneste kilde til åbningstider: "Åben nu" læser data-attributterne herfra.
+             Når tiderne er bekræftet, indsæt rækker som:
+             <tr data-dage="1,2,3,4,5" data-fra="7.00" data-til="15.00"><td>Mandag – fredag</td><td>7.00 – 15.00</td></tr>
+             <tr class="lukket" data-dage="0"><td>Søndag</td><td>Lukket</td></tr>
+             (dage: 0 = søndag … 6 = lørdag). Mærkerne og "i dag" tænder af sig selv. -->
+        <table id="tider" hidden></table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="maerke" href="#top" aria-label="KOLD">K<span class="o">O<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.5 2.5C5.5 6.2 3.2 13.6 6.4 21.2 13.8 18.4 16.8 10.8 12.5 2.5Z"/><path class="stilk" d="M6.4 21.2C8.6 15.6 10.4 11.2 12.3 6.2"/></svg></span>LD</a>
+    <span class="slogan">Ren kærlighed til de lokale.</span>
+    <span class="lille">© 2026 KOLD · Sandwich, pasta og SMÖR i Åbyhøj</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.documentElement.lang = 'da';
+  var stille = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function $(s, r){ return (r || document).querySelector(s); }
+  function $$(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+
+  /* #forhaandsvisning viser det fulde menukort i stedet for "kommer snart" */
+  if(location.hash === '#forhaandsvisning' && $('#fuldtMenukort')){
+    $('#fuldtMenukort').hidden = false;
+    $('#menuSnart').hidden = true;
+    $('#menuNote').textContent = 'Forhåndsvisning af det kommende menukort. Alle priser er i kr. Du bestiller ved disken.';
+  }
+
+  /* Menukort kommer snart: én kategori åben ad gangen, billedet følger med (og kigger med ved hover) */
+  (function(){
+    var liste = $('#katListe'); if(!liste || liste.closest('[hidden]')) return;
+    var kats = $$('.kat', liste), imgs = $$('.snart-scene img');
+    var aktiv = kats[0].dataset.kat;
+    function vis(id){ imgs.forEach(function(i){ i.classList.toggle('skjult', i.dataset.kat !== id); }); }
+    kats.forEach(function(k){
+      var b = $('button', k);
+      b.addEventListener('click', function(){
+        kats.forEach(function(x){ var on = x === k; x.classList.toggle('aaben', on); $('button', x).setAttribute('aria-expanded', on ? 'true' : 'false'); });
+        aktiv = k.dataset.kat; vis(aktiv);
+      });
+      b.addEventListener('pointerenter', function(e){ if(e.pointerType === 'mouse') vis(k.dataset.kat); });
+      b.addEventListener('pointerleave', function(e){ if(e.pointerType === 'mouse') vis(aktiv); });
+    });
+  })();
+  function kr(n){ return n.toFixed(2).replace('.', ','); }
+
+  /* Tal der tæller op/ned til ny værdi */
+  function tael(el, til, fmt){
+    fmt = fmt || kr;
+    var fra = parseFloat(el.getAttribute('data-v') || el.textContent.replace(',', '.')) || 0;
+    el.setAttribute('data-v', til);
+    if(stille || fra === til){ el.textContent = fmt(til); return; }
+    var t0 = null, varighed = 380;
+    function trin(t){
+      if(!t0) t0 = t;
+      var p = Math.min(1, (t - t0) / varighed), e = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(Math.round(fra + (til - fra) * e));
+      if(p < 1) requestAnimationFrame(trin); else el.textContent = fmt(til);
+    }
+    requestAnimationFrame(trin);
+  }
+  function genstart(el, klasse){ el.classList.remove(klasse); void el.offsetWidth; el.classList.add(klasse); }
+  function linje(navn, pris, sub){
+    var li = document.createElement('li');
+    var a = document.createElement('span'); a.textContent = navn;
+    var b = document.createElement('span'); b.textContent = kr(pris);
+    li.appendChild(a); li.appendChild(b);
+    if(sub){ var c = document.createElement('span'); c.className = 'sub'; c.textContent = sub; li.appendChild(c); }
+    return li;
+  }
+
+  /* Burger */
+  var burger = $('#burger'), nav = $('#nav');
+  if(burger && nav){
+    burger.addEventListener('click', function(){
+      var aaben = nav.classList.toggle('aaben');
+      burger.setAttribute('aria-expanded', aaben ? 'true' : 'false');
+      burger.textContent = aaben ? 'Luk' : 'Menu';
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){ nav.classList.remove('aaben'); burger.setAttribute('aria-expanded', 'false'); burger.textContent = 'Menu'; }
+    });
+  }
+
+  /* Steppers */
+  function stepper(el, vedAendring){
+    var min = +el.dataset.min, max = +el.dataset.max, out = $('output', el);
+    var ned = $('[data-trin="-1"]', el), op = $('[data-trin="1"]', el);
+    function saet(v){
+      v = Math.max(min, Math.min(max, v));
+      el.dataset.vaerdi = v; out.textContent = v;
+      ned.disabled = v <= min; op.disabled = v >= max;
+    }
+    el.addEventListener('click', function(e){
+      var k = e.target.closest('[data-trin]'); if(!k) return;
+      saet(+el.dataset.vaerdi + (+k.dataset.trin)); vedAendring();
+    });
+    saet(+el.dataset.vaerdi);
+    return function(){ return +el.dataset.vaerdi; };
+  }
+
+  /* Åben nu: læser tabellen, regner i dansk tid */
+  (function(){
+    var raekker = $$('#tider tr');
+    if(!raekker.length) return;
+    $('#tider').hidden = false;
+    if($('#tiderSnart')) $('#tiderSnart').hidden = true;
+    $$('[data-status]').forEach(function(el){ el.hidden = false; });
+    var dagNavn = ['søndag','mandag','tirsdag','onsdag','torsdag','fredag','lørdag'];
+    function nu(){
+      try{
+        var d = new Intl.DateTimeFormat('en-US', {timeZone:'Europe/Copenhagen', weekday:'short', hour:'2-digit', minute:'2-digit', hourCycle:'h23'}).formatToParts(new Date());
+        var m = {}; d.forEach(function(p){ m[p.type] = p.value; });
+        return { dag:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(m.weekday), min:(+m.hour % 24) * 60 + (+m.minute) };
+      }catch(e){ var x = new Date(); return { dag:x.getDay(), min:x.getHours() * 60 + x.getMinutes() }; }
+    }
+    function tilMin(s){ var p = s.split('.'); return (+p[0]) * 60 + (+p[1] || 0); }
+    function tiderFor(dag){
+      for(var i = 0; i < raekker.length; i++){
+        var r = raekker[i];
+        if(r.dataset.dage.split(',').indexOf(String(dag)) > -1) return { r:r, fra:r.dataset.fra, til:r.dataset.til };
+      }
+      return null;
+    }
+    function opdater(){
+      var n = nu(), i = tiderFor(n.dag), tekst, aaben = false;
+      raekker.forEach(function(r){ r.classList.toggle('idag', !!i && r === i.r); });
+      if(i && i.fra && n.min >= tilMin(i.fra) && n.min < tilMin(i.til)){
+        aaben = true; tekst = 'Åben nu · lukker kl. ' + i.til;
+      }else if(i && i.fra && n.min < tilMin(i.fra)){
+        tekst = 'Lukket · åbner kl. ' + i.fra;
+      }else{
+        for(var k = 1; k <= 7; k++){
+          var d = (n.dag + k) % 7, j = tiderFor(d);
+          if(j && j.fra){ tekst = 'Lukket · åbner ' + (k === 1 ? 'i morgen' : dagNavn[d]) + ' kl. ' + j.fra; break; }
+        }
+      }
+      $$('[data-status]').forEach(function(el){
+        el.dataset.aaben = aaben ? 'ja' : 'nej';
+        $('[data-status-tekst]', el).textContent = tekst || 'Se åbningstider';
+      });
+    }
+    opdater(); setInterval(opdater, 60000);
+  })();
+
+  /* Fanebar: glidende markør + følger hvor man er på menukortet */
+  (function(){
+    var bar = $('#fanebar'); if(!bar || bar.closest('[hidden]')) return;
+    var markoer = $('.markoer', bar), faner = $$('a', bar);
+    var grupper = faner.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); });
+    var aktiv = faner[0];
+    function placer(){
+      markoer.style.width = aktiv.offsetWidth + 'px';
+      markoer.style.transform = 'translateX(' + aktiv.offsetLeft + 'px)';
+    }
+    function saet(a){
+      if(a === aktiv) return;
+      aktiv.classList.remove('aktiv'); aktiv = a; aktiv.classList.add('aktiv');
+      placer();
+      var maal = a.offsetLeft - (bar.clientWidth - a.offsetWidth) / 2;
+      bar.scrollTo({ left:maal, behavior: stille ? 'auto' : 'smooth' });
+    }
+    aktiv.classList.add('aktiv'); placer();
+    if(document.fonts && document.fonts.ready) document.fonts.ready.then(placer);
+    window.addEventListener('resize', placer);
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(poster){
+        poster.forEach(function(p){
+          if(p.isIntersecting){ var i = grupper.indexOf(p.target); if(i > -1) saet(faner[i]); }
+        });
+      }, { rootMargin:'-40% 0px -55% 0px' });
+      grupper.forEach(function(g){ if(g) io.observe(g); });
+    }
+    faner.forEach(function(a){ a.addEventListener('click', function(){ saet(a); }); });
+  })();
+
+  /* Byg selv */
+  (function(){
+    var f = $('#bygger'); if(!f) return;
+    f.addEventListener('submit', function(e){ e.preventDefault(); });
+    var bon = $('#bygBon'), liste = $('#bygLinjer'), total = $('#bygTotal');
+    var sovs = $('#sovs'), sovsNavn = $('#sovsNavn');
+    var antal = stepper($('#byg-antal'), opdater);
+    var sidsteDressing = null;
+    function v(navn){ var el = f.querySelector('input[name="' + navn + '"]:checked'); return el ? el.value : ''; }
+    function opdater(){
+      var ret = v('ret'), n = antal(), sum = 0;
+      $$('[data-kun]', f).forEach(function(el){ el.hidden = el.dataset.kun !== ret; });
+      $$('.ret-billede', f).forEach(function(img){
+        img.classList.toggle('skjult', img.dataset.ret !== ret);
+        img.classList.toggle('lille', img.dataset.ret === 'pasta' && v('str') === 'lille');
+      });
+      var dr = f.querySelector('input[name="dressing"]:checked');
+      sovs.style.setProperty('--sovs', dr.dataset.farve); sovsNavn.textContent = dr.value;
+      if(sidsteDressing !== null && sidsteDressing !== dr.value && !stille) genstart(sovs, 'plask');
+      sidsteDressing = dr.value;
+
+      liste.textContent = '';
+      if(ret === 'sandwich'){
+        liste.appendChild(linje(n + ' × KOLD Sandwich', 72 * n, v('broed') + ' · ' + dr.value)); sum += 72 * n;
+        if($('#ekstra-broed').checked){ liste.appendChild(linje(n + ' × Ekstra brød', 5 * n)); sum += 5 * n; }
+      }else{
+        var stor = v('str') === 'stor', p = stor ? 80 : 54;
+        liste.appendChild(linje(n + ' × KOLD Pasta, ' + (stor ? 'stor' : 'lille'), p * n, v('pasta') + ' · ' + dr.value)); sum += p * n;
+        if($('#pesto-broed').checked){ liste.appendChild(linje(n + ' × Brændt brød m. pesto', 10 * n)); sum += 10 * n; }
+      }
+      tael(total, sum);
+      if(!stille) genstart(bon, 'print');
+    }
+    f.addEventListener('change', opdater);
+    opdater();
+  })();
+
+  /* Smør: tallerken med tre pladser og kortets tallerkenpriser */
+  (function(){
+    var RETTER = {
+      fisk:{ navn:'Fiskefillet', pris:99 },
+      kartoffel:{ navn:'Kartoffel', pris:65 },
+      tartar:{ navn:'Oksetartar', pris:65 },
+      aeg:{ navn:'Æg & rejer', pris:65 },
+      tun:{ navn:'Spicy tun', pris:65 },
+      roastbeef:{ navn:'Roastbeef', pris:65 }
+    };
+    var tallerken = $('#tallerken'); if(!tallerken) return;
+    var pladser = $$('.plads', tallerken);
+    var plade = ['fisk', 'tartar', 'aeg'];
+    var status = $('#tStatus'), pris = $('#tPris'), stk = $('#tStk'), spar = $('#tSpar');
+    var kombier = $$('.kombi li'), knapper = $$('[data-laeg]');
+
+    function tegn(nyIndex){
+      pladser.forEach(function(p, i){
+        p.textContent = '';
+        var id = plade[i];
+        if(id){
+          var s = document.createElement('span'); s.className = 'stykke' + (i === nyIndex ? ' ny' : '');
+          s.style.setProperty('--t', 'var(--t-' + id + ')'); s.style.setProperty('--p', 'var(--p-' + id + ')');
+          var n = document.createElement('span'); n.className = 'navneskilt'; n.textContent = RETTER[id].navn;
+          p.appendChild(s); p.appendChild(n);
+          p.setAttribute('aria-label', 'Fjern ' + RETTER[id].navn + ' fra tallerkenen');
+        }else{
+          var t = document.createElement('span'); t.className = 'tom'; t.textContent = '+';
+          p.appendChild(t);
+          p.setAttribute('aria-label', 'Tom plads ' + (i + 1));
+        }
+      });
+      knapper.forEach(function(k){
+        var c = plade.filter(function(x){ return x === k.dataset.laeg; }).length;
+        k.classList.toggle('har', c > 0);
+        $('.antal', k).textContent = c ? '×' + c : '';
+      });
+
+      var n = plade.length, f = plade.filter(function(x){ return x === 'fisk'; }).length;
+      var stykpris = plade.reduce(function(s, id){ return s + RETTER[id].pris; }, 0);
+      var kombi = null, tekst;
+      if(n === 3){
+        if(f === 1) kombi = { k:'1', p:180, t:'Tallerkenpris: 1 fiskefillet + 2 smørrebrød.' };
+        else if(f === 0) kombi = { k:'0', p:180, t:'Tallerkenpris: 3 frit valgte smørrebrød.' };
+        else if(f === 3) kombi = { k:'3', p:250, t:'Tallerkenpris: 3 × fiskefillet.' };
+        tekst = kombi ? kombi.t : 'To fiskefilletter og ét smørrebrød har ingen tallerkenpris. Byt et stykke, eller betal stykpris.';
+      }else if(n === 0){
+        tekst = 'Tallerkenen er tom. Læg tre stykker på, så får du tallerkenpris.';
+      }else{
+        tekst = 'Læg ' + (3 - n === 1 ? 'ét stykke' : 'to stykker') + ' mere på for tallerkenpris.';
+      }
+      status.textContent = tekst;
+      kombier.forEach(function(li){ li.classList.toggle('match', !!kombi && li.dataset.kombi === kombi.k); });
+      var endelig = kombi ? kombi.p : stykpris;
+      tael(pris, endelig, String);
+      stk.hidden = !kombi; stk.textContent = stykpris;
+      spar.hidden = !kombi; if(kombi) spar.textContent = 'Du sparer ' + (stykpris - kombi.p) + ' kr.';
+    }
+
+    knapper.forEach(function(k){
+      k.addEventListener('click', function(){
+        if(plade.length >= 3){
+          status.textContent = 'Tallerkenen er fuld. Tryk på et stykke for at fjerne det.';
+          if(!stille) genstart(tallerken, 'fuld');
+          return;
+        }
+        plade.push(k.dataset.laeg); tegn(plade.length - 1);
+      });
+    });
+    pladser.forEach(function(p, i){
+      p.addEventListener('click', function(){ if(plade[i]){ plade.splice(i, 1); tegn(-1); } });
+    });
+    $('#ryd').addEventListener('click', function(){ plade = []; tegn(-1); });
+    tegn(-1);
+  })();
+
+  /* Juicer: flasken skifter farve */
+  (function(){
+    var flaske = $('#flaske'); if(!flaske) return;
+    var vaeske = $('#vaeske'), navn = $('#juiceNavn'), indhold = $('#juiceIndhold');
+    $$('input[name="juice"]').forEach(function(r){
+      r.addEventListener('change', function(){
+        flaske.style.setProperty('--saft', r.dataset.farve);
+        flaske.setAttribute('aria-label', 'Flaske med ' + r.value);
+        navn.textContent = r.value;
+        indhold.textContent = $('small', r.parentNode).textContent;
+        if(!stille){ vaeske.classList.remove('skvulp'); void vaeske.getBoundingClientRect(); vaeske.classList.add('skvulp'); }
+      });
+    });
+  })();
+
+  /* Morgen: rundstykker 15 kr., 2 for 25; kaffe 25 kr. */
+  (function(){
+    var liste = $('#morgenLinjer'); if(!liste) return;
+    var bon = $('#morgenBon'), total = $('#morgenTotal');
+    var rund = stepper($('#m-rund'), opdater), kaffe = stepper($('#m-kaffe'), opdater);
+    function opdater(){
+      var r = rund(), k = kaffe(), sum = 0, type = ($('input[name="kaffe"]:checked') || {}).value || 'Kaffe';
+      liste.textContent = '';
+      if(r){
+        var par = Math.floor(r / 2), rest = r % 2, p = par * 25 + rest * 15;
+        liste.appendChild(linje(r + ' × Rundstykke', p, par ? (par === 1 ? '2 for 25' : par + ' × 2 for 25') + (rest ? ' + 1 à 15' : '') : '')); sum += p;
+      }
+      if(k){ liste.appendChild(linje(k + ' × ' + type, k * 25)); sum += k * 25; }
+      if(!r && !k){ var li = document.createElement('li'); var s = document.createElement('span'); s.className = 'tom'; s.textContent = 'Tom bakke. Tilføj rundstykker eller kaffe.'; li.appendChild(s); liste.appendChild(li); }
+      tael(total, sum);
+      if(!stille) genstart(bon, 'print');
+    }
+    $$('input[name="kaffe"]').forEach(function(x){ x.addEventListener('change', opdater); });
+    opdater();
+  })();
+
+  /* Hero: billedet vipper let efter musen */
+  (function(){
+    var b = $('#heroBillede');
+    if(!b || stille || !matchMedia('(pointer: fine)').matches) return;
+    var hero = $('.hero');
+    hero.addEventListener('pointermove', function(e){
+      var r = b.getBoundingClientRect();
+      var x = (e.clientX - (r.left + r.width / 2)) / r.width, y = (e.clientY - (r.top + r.height / 2)) / r.height;
+      x = Math.max(-1, Math.min(1, x)); y = Math.max(-1, Math.min(1, y));
+      b.style.setProperty('--ry', (x * 10).toFixed(2) + 'deg');
+      b.style.setProperty('--rx', (-y * 8).toFixed(2) + 'deg');
+      b.style.setProperty('--cx', (-x * 14).toFixed(1) + 'px');
+      b.style.setProperty('--cy', (-y * 14).toFixed(1) + 'px');
+    });
+    hero.addEventListener('pointerleave', function(){
+      ['--rx','--ry','--cx','--cy'].forEach(function(p){ b.style.removeProperty(p); });
+    });
+  })();
+
+  /* Kopiér mail */
+  (function(){
+    var k = $('#kopier'), m = $('#mail'); if(!k || !m) return;
+    k.addEventListener('click', function(){
+      function ok(){ k.textContent = 'Kopieret'; setTimeout(function(){ k.textContent = 'Kopiér'; }, 1800); }
+      function vaelg(){ var r = document.createRange(); r.selectNodeContents(m); var s = getSelection(); s.removeAllRanges(); s.addRange(r); k.textContent = 'Markeret'; }
+      try{ navigator.clipboard.writeText(m.textContent).then(ok, vaelg); }catch(e){ vaelg(); }
+    });
+  })();
+})();
+</script>
+</body></html>
