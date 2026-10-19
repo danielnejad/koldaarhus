@@ -1951,6 +1951,8 @@
       window.addEventListener('hashchange', function(){ if(location.hash === '#rediger') location.reload(); });
       return;
     }
+    /* Redigering kun på den sikre adresse (adgangskoden kræver https) */
+    if(location.protocol === 'http:' && /(^|\.)koldaarhus\.dk$/.test(location.hostname)){ location.replace('https://www.koldaarhus.dk/#rediger'); return; }
     var REPO = 'danielnejad/koldaarhus', API = 'https://api.github.com/repos/' + REPO, FIL = '_data/tekster.json';
     var LAGER = 'kold-redigering', GUIDE = 'kold-guide-set', ITER = 600000;
     var html = document.documentElement;
