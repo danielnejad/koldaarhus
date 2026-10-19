@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Ret KOLDs hjemmeside</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Fraunces:opsz,wght@9..144,400..600&display=swap">
+<style>
+  /* Guide til ejeren: samme farver som hjemmesiden, én lang og rolig side, der også læses godt på mobilen */
+  :root{
+    --lime:#B5E61D; --lime-moerk:#9ACB10; --lime-lys:#EEF9D2; --skov:#14301B; --mos:#5B6B52; --linje:#D6E2C6; --hvid:#FFFFFF;
+    --bg:var(--hvid); --tekst:var(--skov); --tekst2:var(--mos); --flade:var(--lime-lys);
+    --sans:"Archivo", "Helvetica Neue", Arial, sans-serif; --serif:"Fraunces", Georgia, serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){ --bg:#0E1C12; --tekst:#F2F7E6; --tekst2:#A9B89C; --flade:#172A1B; --linje:#28402C; color-scheme:dark }
+  }
+  :root[data-theme="dark"]{ --bg:#0E1C12; --tekst:#F2F7E6; --tekst2:#A9B89C; --flade:#172A1B; --linje:#28402C; color-scheme:dark }
+  *,*::before,*::after{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--tekst);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin-inline:auto;padding-inline:clamp(16px,5vw,32px)}
+  header{background:var(--skov);color:#F2F7E6}
+  header .wrap{padding-block:clamp(36px,7vw,64px) clamp(30px,6vw,52px)}
+  .maerke{font-weight:900;font-stretch:125%;letter-spacing:-.03em;font-size:1.5rem;color:var(--lime)}
+  h1{margin:14px 0 0;font-weight:800;font-stretch:125%;letter-spacing:-.03em;line-height:1.02;font-size:clamp(2rem,6vw,3rem);text-wrap:balance}
+  header p{margin:16px 0 0;max-width:34em;color:rgba(242,247,230,.8);font-size:1.08rem}
+  .knap{display:inline-block;margin-top:24px;background:var(--lime);color:var(--skov);text-decoration:none;font-weight:700;border-radius:999px;padding:14px 24px}
+  .knap:hover{background:var(--lime-moerk)}
+  main{padding-block:clamp(32px,6vw,56px) 72px}
+  ol.trin{list-style:none;margin:0;padding:0;counter-reset:trin;display:grid;gap:26px}
+  ol.trin li{counter-increment:trin;display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 16px}
+  ol.trin li::before{content:counter(trin);grid-row:span 3;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--lime);color:var(--skov);font-weight:800;font-size:1.1rem}
+  h2{margin:0;font-family:var(--serif);font-weight:600;font-size:1.35rem;line-height:1.25}
+  li p,section p{margin:4px 0 0;color:var(--tekst2)}
+  code{font-size:.92em;background:var(--flade);padding:2px 7px;border-radius:6px;color:var(--tekst)}
+  .bjaelke{margin-top:12px;display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px 12px;border-radius:14px;background:var(--skov);color:#F2F7E6;font-size:.85rem;font-weight:700}
+  .bjaelke span{border:1px solid rgba(242,247,230,.3);border-radius:999px;padding:5px 11px}
+  .bjaelke .gem{background:var(--lime);border-color:var(--lime);color:var(--skov)}
+  .stiplet{display:inline-block;margin-top:10px;padding:2px 6px;outline:2px dashed var(--lime-moerk);outline-offset:3px;font-weight:700}
+  section{margin-top:44px;padding-top:28px;border-top:1px solid var(--linje)}
+  section h2::before{content:"";display:block;width:44px;height:4px;border-radius:2px;background:var(--lime);margin-bottom:14px}
+  .boks{margin-top:14px;padding:16px 18px;border-radius:14px;background:var(--flade)}
+  .boks p{margin:0;color:var(--tekst)}
+  footer{border-top:1px solid var(--linje);color:var(--tekst2);font-size:.9rem}
+  footer .wrap{padding-block:24px}
+  a{color:inherit}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <span class="maerke">KOLD</span>
+    <h1>Sådan retter du hjemmesiden</h1>
+    <p>Du kan selv rette alle tekster, mail, telefon, adresse, åbningstider og billeder på koldaarhus.dk – direkte på siden, så du ser præcis, hvordan det kommer til at se ud, før du gemmer.</p>
+    <a class="knap" href="/#rediger">Åbn redigering</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <ol class="trin">
+    <li>
+      <h2>Åbn redigering</h2>
+      <p>Gå til <code>www.koldaarhus.dk/#rediger</code> – eller tryk <strong>Ret siden</strong> nederst på hjemmesiden.</p>
+    </li>
+    <li>
+      <h2>Log ind med din nøgle</h2>
+      <p>Sæt den nøgle ind, du har fået. Den er lang og starter med <code>github_pat_</code> – kopiér og indsæt den hele.</p>
+      <p>Sæt flueben i <strong>Husk mig</strong>, så skal du kun gøre det én gang på hver telefon eller computer. Giv aldrig nøglen til andre.</p>
+    </li>
+    <li>
+      <h2>Klik på det, du vil rette</h2>
+      <p>Alt med en stiplet kant kan rettes. Klik, og skriv det nye i boksen – siden viser det med det samme.</p>
+      <span class="stiplet">Frisklavet.</span>
+    </li>
+    <li>
+      <h2>Tryk Gem ændringer</h2>
+      <p>Bjælken nederst viser, hvor mange ændringer der venter. Efter ca. et minut kan alle se det, og bjælken skriver <strong>Live på siden nu ✓</strong>.</p>
+      <div class="bjaelke" aria-hidden="true"><span>Indhold</span><span>Hjælp</span><span>Fortryd</span><span class="gem">Gem ændringer</span><span>Afslut</span></div>
+    </li>
+  </ol>
+
+  <section>
+    <h2>Mail, telefon og adresse</h2>
+    <p>Tryk <strong>Indhold</strong> i bjælken. Øverst står kontaktoplysningerne. Ret dem dér, så skifter de alle steder på siden – også links til mail, opkald og Google Maps.</p>
+    <div class="boks"><p>Skifter I mailadresse? Catering-formularen sender til den mail, der står på siden. Første gang efter et skift kommer der en mail fra <strong>FormSubmit</strong> til den nye adresse. Tryk <strong>Activate Form</strong> i den, så virker formularen.</p></div>
+  </section>
+
+  <section>
+    <h2>Åbningstider</h2>
+    <p>Også under <strong>Indhold</strong>: skriv fx <code>7.00–15.00</code> eller <code>Lukket</code> ud for hver dag. Tomme dage vises ikke. Så snart der står tider, viser siden selv <strong>Åben nu</strong> eller hvornår I åbner.</p>
+  </section>
+
+  <section>
+    <h2>Billeder</h2>
+    <p>Klik på et billede, og tryk <strong>Vælg nyt billede</strong>. Det bliver gjort mindre automatisk, så siden stadig er hurtig.</p>
+    <p>Almindelige fotos vises runde i den grønne cirkel. Billeder uden baggrund (fritlagte, fx PNG) vises frit, som de gør nu.</p>
+  </section>
+
+  <section>
+    <h2>Hvis noget går galt</h2>
+    <p>Fortryder du, før du har gemt, så tryk <strong>Fortryd</strong>. Er det gemt, så ret det tilbage på samme måde.</p>
+    <p>Alle ændringer gemmes i en historik, så intet går tabt. Er du i tvivl, så skriv til den, der har sat siden op.</p>
+  </section>
+
+  <section>
+    <h2>Gode råd</h2>
+    <p>Hold teksterne korte – de fleste læser siden på mobilen. Kig på siden på din telefon, når du har gemt.</p>
+  </section>
+</main>
+
+<footer><div class="wrap">KOLD · Henrik Hertz Vej 74, 8230 Åbyhøj</div></footer>
+</body>
+</html>
