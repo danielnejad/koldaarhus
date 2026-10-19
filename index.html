@@ -1942,15 +1942,17 @@
      Ejeren logger ind med sin nøgle, klikker på en tekst eller et billede og retter det – siden
      viser ændringen med det samme. "Gem ændringer" skriver til GitHub: teksterne i _data/tekster.json og nye
      billeder i billeder/. GitHub Pages bygger så siden igen (ca. et minut). Teksterne bor i den fil, så de aldrig
-     overskrives, når siden bygges om fra kilden. Nøglen er ejerens eget GitHub-token, der kun må skrive i dette
-     ene repo. Den gemmes kun i ejerens egen browser (og kun hvis "Husk mig" er valgt) – aldrig på siden. (20-10-2026) */
+     overskrives, når siden bygges om fra kilden. Nøglen er et GitHub-token for kontoen nightliferpdk, der kun har adgang
+     til dette repo. Ejeren kan logge ind med en adgangskode, han selv har valgt (Indhold → Adgang): browseren krypterer
+     nøglen med koden (AES-GCM, PBKDF2-SHA256 600.000 runder) og lægger den i adgang.json. Uden koden kan filen ikke
+     bruges; koden skal være mindst 12 tegn, så den ikke kan gættes. "Husk mig" gemmer kun i ejerens egen browser. (20-10-2026) */
   (function(){
     if(location.hash !== '#rediger'){
       window.addEventListener('hashchange', function(){ if(location.hash === '#rediger') location.reload(); });
       return;
     }
     var REPO = 'danielnejad/koldaarhus', API = 'https://api.github.com/repos/' + REPO, FIL = '_data/tekster.json';
-    var LAGER = 'kold-redigering', GUIDE = 'kold-guide-set';
+    var LAGER = 'kold-redigering', GUIDE = 'kold-guide-set', ITER = 600000;
     var html = document.documentElement;
     var AFSNIT = { kontakt:'Kontakt', tider:'Åbningstider', nav:'Menuen i toppen', hero:'Toppen', tagline:'Linjen under logoet',
       stempel:'Stemplet', baand:'Båndet', fakta:'De 3 punkter', menu:'Menukort', kat:'Kategorier', snart:'Kommer snart-mærket',
@@ -1997,6 +1999,25 @@
     function tekstB64(t){ return b64(new TextEncoder().encode(t)); }
     function fejl(status){ var e = new Error('http ' + status); e.status = status; return e; }
     function tjek(n){ return fetch(API, { headers:hoved(n), cache:'no-store' }).then(function(r){ if(!r.ok) throw fejl(r.status); return n; }); }
+    /* adgangskoden: låser nøglen op fra adgang.json – og låser den, når en ny kode sættes */
+    function afled(kode, salt, iter){
+      return crypto.subtle.importKey('raw', new TextEncoder().encode(kode), 'PBKDF2', false, ['deriveKey']).then(function(base){
+        return crypto.subtle.deriveKey({ name:'PBKDF2', salt:salt, iterations:iter, hash:'SHA-256' }, base, { name:'AES-GCM', length:256 }, false, ['encrypt', 'decrypt']);
+      });
+    }
+    function laasOp(kode){
+      return fetch('adgang.json?_=' + Date.now(), { cache:'no-store' }).then(function(r){ if(!r.ok) throw fejl(r.status); return r.json(); }).then(function(a){
+        return afled(kode, fraB64(a.salt), a.iter).then(function(key){
+          return crypto.subtle.decrypt({ name:'AES-GCM', iv:fraB64(a.iv) }, key, fraB64(a.data));
+        }).then(function(buf){ return new TextDecoder().decode(buf); });
+      });
+    }
+    function laas(n, kode){
+      var salt = crypto.getRandomValues(new Uint8Array(16)), iv = crypto.getRandomValues(new Uint8Array(12));
+      return afled(kode, salt, ITER).then(function(key){
+        return crypto.subtle.encrypt({ name:'AES-GCM', iv:iv }, key, new TextEncoder().encode(n));
+      }).then(function(ct){ return { v:1, iter:ITER, salt:b64(salt), iv:b64(iv), data:b64(new Uint8Array(ct)) }; });
+    }
     function hentFil(n, sti){
       return fetch(API + '/contents/' + sti + '?ref=main&_=' + Date.now(), { headers:hoved(n), cache:'no-store' }).then(function(r){
         if(r.status === 404) return { sha:null, tekst:'' };
@@ -2029,9 +2050,9 @@
     function visLogin(besked){
       var bag = el('div', 'red-bag'), dlg = el('form', 'red-dlg');
       var h = el('h2', null, 'Ret KOLDs hjemmeside');
-      var p = el('p', null, 'Sæt den nøgle ind, du har fået. Med flueben i "Husk mig" skal du kun gøre det én gang på denne telefon eller computer.');
-      var lab = el('label', null, 'Din nøgle'); lab.htmlFor = 'red-kode';
-      var inp = el('input'); inp.id = 'red-kode'; inp.type = 'password'; inp.autocomplete = 'off'; inp.required = true; inp.spellcheck = false;
+      var p = el('p', null, 'Skriv adgangskoden. Med flueben i "Husk mig" skal du kun gøre det én gang på denne telefon eller computer.');
+      var lab = el('label', null, 'Adgangskode'); lab.htmlFor = 'red-kode';
+      var inp = el('input'); inp.id = 'red-kode'; inp.type = 'password'; inp.autocomplete = 'current-password'; inp.required = true; inp.spellcheck = false;
       var huskL = el('label', 'red-husk'), cb = el('input'); cb.type = 'checkbox'; cb.id = 'red-husk'; cb.checked = true;
       huskL.appendChild(cb); huskL.appendChild(document.createTextNode('Husk mig på denne enhed'));
       var fejlP = el('p', 'red-fejl', besked || ''); fejlP.hidden = !besked; fejlP.setAttribute('role', 'alert');
@@ -2041,12 +2062,18 @@
       [h, p, lab, inp, huskL, fejlP, knap, links].forEach(function(x){ dlg.appendChild(x); });
       bag.appendChild(dlg); document.body.appendChild(bag); inp.focus();
       dlg.addEventListener('submit', function(e){
-        e.preventDefault(); var v = inp.value.replace(/\s+/g, '');
+        e.preventDefault();
+        var v = inp.value.trim(), erNoegle = /^(ghp_|github_pat_|gho_)/.test(v.replace(/\s+/g, ''));
         if(!v) return;
+        if(erNoegle) v = v.replace(/\s+/g, '');
         knap.disabled = true; knap.textContent = 'Tjekker …'; fejlP.hidden = true;
-        tjek(v).then(function(n){ noegle = n; husk(n, cb.checked); bag.remove(); start(); }).catch(function(err){
-          fejlP.textContent = err && err.status === 401 ? 'Nøglen virker ikke. Tjek, at hele nøglen er sat ind, eller bed om en ny.' : 'Kunne ikke få forbindelse. Prøv igen om lidt.';
-          fejlP.hidden = false; knap.disabled = false; knap.textContent = 'Log ind'; inp.select();
+        (erNoegle ? Promise.resolve(v) : laasOp(v)).then(tjek).then(function(n){ noegle = n; husk(n, cb.checked); bag.remove(); start(); }).catch(function(err){
+          var t;
+          if(err && err.name === 'OperationError') t = 'Forkert adgangskode. Prøv igen.';
+          else if(err && err.status === 404 && !erNoegle) t = 'Der er ikke lavet en adgangskode endnu. Log ind med nøglen, og lav koden under Indhold → Adgang.';
+          else if(err && err.status === 401) t = 'Adgangen virker ikke længere. Bed om en ny nøgle.';
+          else t = 'Kunne ikke få forbindelse. Prøv igen om lidt.';
+          fejlP.textContent = t; fejlP.hidden = false; knap.disabled = false; knap.textContent = 'Log ind'; inp.select();
         });
       });
     }
@@ -2275,10 +2302,32 @@
       var foerst = ORDEN.filter(function(g){ return grupper[g]; }), resten = orden.filter(function(g){ return ORDEN.indexOf(g) < 0; });
       foerst.forEach(gruppe); billedGruppe(); resten.forEach(gruppe);
       panel.appendChild(el('h3', null, 'Adgang'));
+      adgangskodeFelt();
       var logud = knapEl('Log ud på denne enhed');
       logud.addEventListener('click', function(){ glem(); afslutSpurgt = true; location.replace(location.pathname); });
       panel.appendChild(logud);
       document.body.appendChild(panel);
+      function adgangskodeFelt(){
+        var boks = el('div', 'red-felt'), a = el('input'), b = el('input'), knap = knapEl('Gem adgangskode', 'red-gem');
+        var svar = el('small', null, 'Mindst 12 tegn – fx tre tilfældige ord og et tal. Den, der kender koden, kan rette siden.');
+        a.type = b.type = 'password'; a.autocomplete = b.autocomplete = 'new-password';
+        a.placeholder = 'Ny adgangskode'; b.placeholder = 'Skriv den igen';
+        boks.appendChild(el('span', null, 'Adgangskode til at rette siden'));
+        [a, b, knap, svar].forEach(function(x){ boks.appendChild(x); });
+        knap.addEventListener('click', function(){
+          var kode = a.value;
+          if(kode.length < 12){ svar.textContent = 'Koden skal være mindst 12 tegn.'; return; }
+          if(/^(.)\1+$/.test(kode) || /^(1234|abcd|qwer|kold|password|adgangskode)/i.test(kode)){ svar.textContent = 'Koden er for nem at gætte. Brug fx tre tilfældige ord og et tal.'; return; }
+          if(kode !== b.value){ svar.textContent = 'De to koder er ikke ens.'; return; }
+          knap.disabled = true; svar.textContent = 'Gemmer …';
+          laas(noegle, kode).then(function(x){
+            return hentFil(noegle, 'adgang.json').then(function(f){ return skrivFil(noegle, 'adgang.json', tekstB64(JSON.stringify(x) + '\n'), 'Ny adgangskode til at rette hjemmesiden', f.sha); });
+          }).then(function(){ svar.textContent = 'Gemt ✓ Om ca. et minut kan I logge ind på koldaarhus.dk/#rediger med koden.'; a.value = b.value = ''; })
+            .catch(function(){ svar.textContent = 'Kunne ikke gemme koden. Prøv igen.'; })
+            .then(function(){ knap.disabled = false; });
+        });
+        panel.appendChild(boks);
+      }
       function gruppe(g){
         panel.appendChild(el('h3', null, AFSNIT[g] || g));
         grupper[g].forEach(function(k){
