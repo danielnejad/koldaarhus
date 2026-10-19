@@ -235,23 +235,27 @@
     @keyframes snurr{to{transform:rotate(360deg)}}
   }
 
-  /* Rullebånd med retterne */
+  /* Rullebånd: glider altid langsomt som et banner. Med "reducér bevægelse" slået til (fx Windows uden
+     animationer) går det bare endnu roligere i stedet for at stå stille – brugerens ønske 19-10-2026.
+     Kanterne toner ud, og musen over båndet sætter det på pause. */
   .baand{
-    display:flex;overflow:hidden;
     background:var(--baand-bg);color:var(--baand-fg);
     border-block:1px solid var(--baand-bg);
   }
-  .spor{display:flex;align-items:center;flex:none;gap:28px;padding-right:28px;padding-block:16px}
+  .baand-indre{
+    display:flex;overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+    mask-image:linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+  }
+  .spor{display:flex;align-items:center;flex:none;gap:32px;padding-right:32px;padding-block:17px;animation:rul 70s linear infinite}
   .spor span{
     font-weight:900;font-stretch:125%;letter-spacing:-.02em;text-transform:uppercase;
     font-size:clamp(1.3rem,2.6vw,2rem);line-height:1;white-space:nowrap;
   }
   .spor svg{width:22px;height:22px;flex:none;fill:var(--baand-blad);transform:rotate(-18deg)}
-  @media (prefers-reduced-motion: no-preference){
-    .spor{animation:rul 38s linear infinite}
-    .baand:hover .spor{animation-play-state:paused}
-    @keyframes rul{to{transform:translateX(-100%)}}
-  }
+  .baand:hover .spor{animation-play-state:paused}
+  @media (prefers-reduced-motion: reduce){ .spor{animation-duration:160s} }
+  @keyframes rul{to{transform:translateX(-100%)}}
 
   /* Tre fakta på lime */
   .fakta{background:var(--lime);color:var(--skov)}
@@ -834,6 +838,8 @@
   </section>
 
   <div class="baand" aria-label="Fra menukortet">
+    <!-- Hvert spor har ordene to gange, så det er bredere end selv en stor skærm og løkken aldrig viser hul -->
+    <div class="baand-indre">
     <div class="spor">
       <span>Frisklavet</span><svg aria-hidden="true"><use href="#blad"/></svg>
       <span>SMÖR</span><svg aria-hidden="true"><use href="#blad"/></svg>
@@ -842,6 +848,13 @@
       <span>Friskpresset juice</span><svg aria-hidden="true"><use href="#blad"/></svg>
       <span>Masser af umami</span><svg aria-hidden="true"><use href="#blad"/></svg>
       <span>Lige til at tage med</span><svg aria-hidden="true"><use href="#blad"/></svg>
+      <span aria-hidden="true">Frisklavet</span><svg aria-hidden="true"><use href="#blad"/></svg>
+      <span aria-hidden="true">SMÖR</span><svg aria-hidden="true"><use href="#blad"/></svg>
+      <span aria-hidden="true">KOLD sandwich</span><svg aria-hidden="true"><use href="#blad"/></svg>
+      <span aria-hidden="true">Pasta</span><svg aria-hidden="true"><use href="#blad"/></svg>
+      <span aria-hidden="true">Friskpresset juice</span><svg aria-hidden="true"><use href="#blad"/></svg>
+      <span aria-hidden="true">Masser af umami</span><svg aria-hidden="true"><use href="#blad"/></svg>
+      <span aria-hidden="true">Lige til at tage med</span><svg aria-hidden="true"><use href="#blad"/></svg>
     </div>
     <div class="spor" aria-hidden="true">
       <span>Frisklavet</span><svg><use href="#blad"/></svg>
@@ -851,6 +864,14 @@
       <span>Friskpresset juice</span><svg><use href="#blad"/></svg>
       <span>Masser af umami</span><svg><use href="#blad"/></svg>
       <span>Lige til at tage med</span><svg><use href="#blad"/></svg>
+      <span>Frisklavet</span><svg><use href="#blad"/></svg>
+      <span>SMÖR</span><svg><use href="#blad"/></svg>
+      <span>KOLD sandwich</span><svg><use href="#blad"/></svg>
+      <span>Pasta</span><svg><use href="#blad"/></svg>
+      <span>Friskpresset juice</span><svg><use href="#blad"/></svg>
+      <span>Masser af umami</span><svg><use href="#blad"/></svg>
+      <span>Lige til at tage med</span><svg><use href="#blad"/></svg>
+    </div>
     </div>
   </div>
 
@@ -1213,13 +1234,10 @@
   </section>
 
   <section class="sektion om" id="om">
+    <!-- Intet billede af personer her (brugerens ønske 19-10-2026): overskrift til venstre, tekst til højre -->
     <div class="wrap">
-      <figure>
-        <img src="portraet.webp" width="800" height="1186" alt="Køkkenchefen sliber en kniv i KOLDs køkken">
-        <figcaption>Køkkenet hos KOLD, Henrik Hertz Vej 74.</figcaption>
-      </figure>
+      <h2 class="overskrift">Moderne delikatesse og frisklavet takeaway</h2>
       <div class="tekst">
-        <h2 class="overskrift">Moderne delikatesse og frisklavet takeaway</h2>
         <p>Hos KOLD forener vi stolte madtraditioner med moderne gastronomi. Med erfaring fra bl.a. Noma og Jordnær skaber vi frisklavede sandwiches, pasta, nytænkte smørrebrød og friskpressede juicer.</p>
         <blockquote>Vores signaturdressinger er inspireret af vores erfaring fra Michelin-køkkenet, hvor vi arbejder med dybde, balance og umami.</blockquote>
         <p>Vi tror på gode råvarer, gennemtænkte smage og kvalitet i hver eneste detalje. Lige til hverdagen. Lige til at tage med. Altid med KOLDs kærlighed til smag.</p>
