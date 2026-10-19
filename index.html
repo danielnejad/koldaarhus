@@ -22,7 +22,7 @@
 
     /* Bånd og stempel vender farver i mørk tilstand, så de ikke forsvinder i baggrunden */
     --baand-bg:var(--skov); --baand-fg:var(--hvid); --baand-blad:var(--lime);
-    --baand2-bg:var(--lime-moerk); --baand2-fg:var(--skov); --baand2-blad:var(--hvid); --fakta-streg:rgba(20,48,27,.2);
+    --baand-traad:rgba(181,230,29,.5); --fakta-streg:rgba(20,48,27,.2);
     --stempel-bg:var(--skov); --stempel-fg:var(--hvid); --stempel-blad:var(--lime);
 
     /* Fysiske ting (bon, tallerken, flaske) er lyse i begge temaer */
@@ -57,6 +57,7 @@
     --vaeg:#140E0A; --vaeg-tekst:#EBCBA5; --lampe:rgba(255,186,112,.42);
     --fejl:#B3261E;
     --logo-bogst:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2228 14 1004 298%22%3E%3Cpath fill-rule=%22evenodd%22 d=%22M34 22H76V290H34Z M266 22H289L76 165.5V150Z M85.8 158.9L147.1 117.6L279 290H209Z M580 22H621V268H735V290H580Z M764 22H872C960 22 1024 80 1024 156C1024 232 960 290 872 290H764Z M806 38V274H868C930 274 968 224 968 156C968 88 930 38 868 38Z%22/%3E%3Ccircle cx=%22414%22 cy=%22162%22 r=%22127%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%2217%22/%3E%3C/svg%3E");
+    --kvist-ikon:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%22391.3 103.6 125.3 203.5%22%3E%3Cpath d=%22M442.0 223.0 L441.0 222.8 L440.6 218.0 L443.6 200.0 L442.5 190.0 L443.6 171.0 L445.9 158.0 L449.9 147.0 L454.8 137.0 L461.5 127.0 L478.0 111.6 L487.0 106.3 L490.0 105.6 L490.7 108.0 L485.4 138.0 L479.2 156.0 L471.4 168.0 L453.6 187.0 L449.3 193.0 L445.4 201.0 L443.3 220.0 L442.0 223.0Z M396.0 305.1 L394.0 305.1 L393.3 304.0 L409.0 289.5 L420.2 274.0 L425.2 260.0 L427.0 248.0 L426.9 239.0 L425.4 232.0 L420.2 222.0 L413.8 214.0 L407.9 204.0 L402.8 190.0 L400.5 176.0 L400.6 157.0 L402.0 155.1 L404.0 156.6 L417.3 180.0 L425.2 200.0 L427.5 215.0 L427.1 233.0 L428.8 251.0 L431.0 252.5 L433.4 251.0 L440.0 229.2 L440.9 230.0 L440.9 235.0 L444.9 237.0 L435.3 252.0 L414.2 290.0 L403.0 301.4 L396.0 305.1Z M448.0 234.0 L446.6 234.0 L451.1 226.0 L457.7 207.0 L461.8 199.0 L469.6 188.0 L482.0 176.6 L496.0 167.5 L510.0 160.8 L514.0 160.1 L514.6 162.0 L508.1 178.0 L500.2 194.0 L494.4 202.0 L488.0 208.2 L458.9 225.0 L448.0 234.0Z%22/%3E%3C/svg%3E");
     --logo-kvist:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2228 14 1004 298%22%3E%3Cpath d=%22M442.0 223.0 L441.0 222.8 L440.6 218.0 L443.6 200.0 L442.5 190.0 L443.6 171.0 L445.9 158.0 L449.9 147.0 L454.8 137.0 L461.5 127.0 L478.0 111.6 L487.0 106.3 L490.0 105.6 L490.7 108.0 L485.4 138.0 L479.2 156.0 L471.4 168.0 L453.6 187.0 L449.3 193.0 L445.4 201.0 L443.3 220.0 L442.0 223.0Z M396.0 305.1 L394.0 305.1 L393.3 304.0 L409.0 289.5 L420.2 274.0 L425.2 260.0 L427.0 248.0 L426.9 239.0 L425.4 232.0 L420.2 222.0 L413.8 214.0 L407.9 204.0 L402.8 190.0 L400.5 176.0 L400.6 157.0 L402.0 155.1 L404.0 156.6 L417.3 180.0 L425.2 200.0 L427.5 215.0 L427.1 233.0 L428.8 251.0 L431.0 252.5 L433.4 251.0 L440.0 229.2 L440.9 230.0 L440.9 235.0 L444.9 237.0 L435.3 252.0 L414.2 290.0 L403.0 301.4 L396.0 305.1Z M448.0 234.0 L446.6 234.0 L451.1 226.0 L457.7 207.0 L461.8 199.0 L469.6 188.0 L482.0 176.6 L496.0 167.5 L510.0 160.8 L514.0 160.1 L514.6 162.0 L508.1 178.0 L500.2 194.0 L494.4 202.0 L488.0 208.2 L458.9 225.0 L448.0 234.0Z%22/%3E%3C/svg%3E");
     /* Logoet på de lyse flader: mørkegrønt med lime kvist; bronze kun på skiltet (intro) og væggen (bunden) */
     --logo-fyld:var(--tekst); --logo-kvist-fyld:var(--lime-moerk); --logo-glans:rgba(181,230,29,.9);
@@ -65,7 +66,7 @@
     :root:not([data-theme="light"]){
       --bg:#0E1C12; --tekst:#F2F7E6; --tekst2:#A9B89C; --flade:#172A1B; --linje:#28402C;
       --skygge:0 30px 60px -30px rgba(0,0,0,.7); --skygge-blød:rgba(0,0,0,.45);
-      --baand-bg:var(--lime); --baand-fg:var(--skov); --baand-blad:var(--skov); --baand2-bg:#24452C; --baand2-fg:var(--lime); --baand2-blad:var(--lime);
+      --baand-bg:var(--lime); --baand-fg:var(--skov); --baand-blad:var(--skov); --baand-traad:rgba(20,48,27,.35);
       --stempel-bg:var(--lime); --stempel-fg:var(--skov); --stempel-blad:var(--skov);
       --bon-bg:#F4F8EC; --tallerken:#EEF2E6; --tallerken-kant:#C9D3BC; --tallerken-tom:#4A6150;
       --glas:rgba(255,255,255,.10); --glas-kant:rgba(242,247,230,.35); --glas-lys:rgba(255,255,255,.35);
@@ -77,7 +78,7 @@
   :root[data-theme="dark"]{
     --bg:#0E1C12; --tekst:#F2F7E6; --tekst2:#A9B89C; --flade:#172A1B; --linje:#28402C;
     --skygge:0 30px 60px -30px rgba(0,0,0,.7); --skygge-blød:rgba(0,0,0,.45);
-    --baand-bg:var(--lime); --baand-fg:var(--skov); --baand-blad:var(--skov); --baand2-bg:#24452C; --baand2-fg:var(--lime); --baand2-blad:var(--lime);
+    --baand-bg:var(--lime); --baand-fg:var(--skov); --baand-blad:var(--skov); --baand-traad:rgba(20,48,27,.35);
     --stempel-bg:var(--lime); --stempel-fg:var(--skov); --stempel-blad:var(--skov);
     --bon-bg:#F4F8EC; --tallerken:#EEF2E6; --tallerken-kant:#C9D3BC; --tallerken-tom:#4A6150;
     --glas:rgba(255,255,255,.10); --glas-kant:rgba(242,247,230,.35); --glas-lys:rgba(255,255,255,.35);
@@ -331,22 +332,24 @@
   .baand:hover .spor{animation-play-state:paused}
   @media (prefers-reduced-motion: reduce){ .spor{animation-duration:160s} }
   @keyframes rul{to{transform:translateX(-100%)}}
-  /* To bånd, der krydser hinanden hen over kanten mellem toppen og de 3 punkter (ejerens ønske 20-10-2026:
-     "opdel dem pænt"). Det forreste (mørkt) glider til venstre, det bagerste (lime) den anden vej. */
+  /* Ét bånd lagt skråt hen over kanten mellem toppen og de 3 punkter (ejerens ønske 20-10-2026: "kun én bar").
+     Fine tråde langs kanterne som på et stofbånd, og kvisten fra KOLDs logo som skilletegn. */
   .baand-scene{position:relative;z-index:3;height:0;overflow-x:clip}
   .baand-scene .baand{position:absolute;left:-6vw;right:-6vw;top:0;translate:0 -50%}
-  .baand-for{rotate:-2deg;box-shadow:0 16px 30px -16px var(--skygge-blød)}
-  .baand-bag{rotate:2.4deg;background:var(--baand2-bg);color:var(--baand2-fg);border-color:var(--baand2-bg)}
-  .baand-bag .spor{animation-direction:reverse;animation-duration:95s}
-  .baand-bag .spor span{font-size:clamp(.95rem,1.8vw,1.3rem);font-weight:800}
-  .baand-bag .spor svg{fill:var(--baand2-blad);width:18px;height:18px}
-  @media (prefers-reduced-motion: reduce){ .baand-bag .spor{animation-duration:200s} }
+  .baand-for{rotate:-1.6deg;box-shadow:0 22px 34px -20px var(--skygge-blød), 0 2px 0 rgba(0,0,0,.08)}
+  .baand-for::before{content:"";position:absolute;inset:6px 0;border-block:1.5px solid var(--baand-traad);pointer-events:none}
+  .baand-for .spor{padding-block:19px}
+  .spor .kvist{
+    flex:none;height:28px;aspect-ratio:0.616;background:var(--baand-blad);
+    -webkit-mask:var(--kvist-ikon) center / contain no-repeat;
+            mask:var(--kvist-ikon) center / contain no-repeat;
+  }
 
   /* Tre fakta på lime */
   .fakta{background:var(--lime);color:var(--skov)}
   .fakta .wrap{
     display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:clamp(16px,2.6vw,36px); padding-block:clamp(92px,9vw,118px) clamp(36px,4.5vw,56px);   /* plads til båndene øverst */
+    gap:clamp(16px,2.6vw,36px); padding-block:clamp(84px,8.5vw,108px) clamp(36px,4.5vw,56px);   /* plads til båndet øverst */
   }
   .fakta .wrap > div{min-width:0}
   .fakta .wrap > div + div{border-left:1.5px solid var(--fakta-streg);padding-left:clamp(16px,2.6vw,36px)}
@@ -1005,68 +1008,40 @@
   </section>
 
   <div class="baand-scene">
-    <div class="baand baand-bag" aria-hidden="true">
-      <div class="baand-indre">
-        <div class="spor">
-          <span>Henrik Hertz Vej 74</span><svg><use href="#blad"/></svg>
-          <span>Ren kærlighed til de lokale</span><svg><use href="#blad"/></svg>
-          <span>Frisk fisk hver morgen</span><svg><use href="#blad"/></svg>
-          <span>Byg selv</span><svg><use href="#blad"/></svg>
-          <span>Åbyhøj</span><svg><use href="#blad"/></svg>
-          <span>Henrik Hertz Vej 74</span><svg><use href="#blad"/></svg>
-          <span>Ren kærlighed til de lokale</span><svg><use href="#blad"/></svg>
-          <span>Frisk fisk hver morgen</span><svg><use href="#blad"/></svg>
-          <span>Byg selv</span><svg><use href="#blad"/></svg>
-          <span>Åbyhøj</span><svg><use href="#blad"/></svg>
-        </div>
-        <div class="spor" aria-hidden="true">
-          <span>Henrik Hertz Vej 74</span><svg><use href="#blad"/></svg>
-          <span>Ren kærlighed til de lokale</span><svg><use href="#blad"/></svg>
-          <span>Frisk fisk hver morgen</span><svg><use href="#blad"/></svg>
-          <span>Byg selv</span><svg><use href="#blad"/></svg>
-          <span>Åbyhøj</span><svg><use href="#blad"/></svg>
-          <span>Henrik Hertz Vej 74</span><svg><use href="#blad"/></svg>
-          <span>Ren kærlighed til de lokale</span><svg><use href="#blad"/></svg>
-          <span>Frisk fisk hver morgen</span><svg><use href="#blad"/></svg>
-          <span>Byg selv</span><svg><use href="#blad"/></svg>
-          <span>Åbyhøj</span><svg><use href="#blad"/></svg>
-        </div>
-      </div>
-    </div>
   <div class="baand baand-for" aria-label="Fra menukortet">
     <!-- Hvert spor har ordene to gange, så det er bredere end selv en stor skærm og løkken aldrig viser hul -->
     <div class="baand-indre">
     <div class="spor">
-      <span>Frisklavet</span><svg aria-hidden="true"><use href="#blad"/></svg>
-      <span>SMÖR</span><svg aria-hidden="true"><use href="#blad"/></svg>
-      <span>KOLD sandwich</span><svg aria-hidden="true"><use href="#blad"/></svg>
-      <span>Pasta</span><svg aria-hidden="true"><use href="#blad"/></svg>
-      <span>Friskpresset juice</span><svg aria-hidden="true"><use href="#blad"/></svg>
-      <span>Masser af umami</span><svg aria-hidden="true"><use href="#blad"/></svg>
-      <span>Lige til at tage med</span><svg aria-hidden="true"><use href="#blad"/></svg>
-      <span aria-hidden="true">Frisklavet</span><svg aria-hidden="true"><use href="#blad"/></svg>
-      <span aria-hidden="true">SMÖR</span><svg aria-hidden="true"><use href="#blad"/></svg>
-      <span aria-hidden="true">KOLD sandwich</span><svg aria-hidden="true"><use href="#blad"/></svg>
-      <span aria-hidden="true">Pasta</span><svg aria-hidden="true"><use href="#blad"/></svg>
-      <span aria-hidden="true">Friskpresset juice</span><svg aria-hidden="true"><use href="#blad"/></svg>
-      <span aria-hidden="true">Masser af umami</span><svg aria-hidden="true"><use href="#blad"/></svg>
-      <span aria-hidden="true">Lige til at tage med</span><svg aria-hidden="true"><use href="#blad"/></svg>
+      <span>Frisklavet</span><i class="kvist" aria-hidden="true"></i>
+      <span>SMÖR</span><i class="kvist" aria-hidden="true"></i>
+      <span>KOLD sandwich</span><i class="kvist" aria-hidden="true"></i>
+      <span>Pasta</span><i class="kvist" aria-hidden="true"></i>
+      <span>Friskpresset juice</span><i class="kvist" aria-hidden="true"></i>
+      <span>Masser af umami</span><i class="kvist" aria-hidden="true"></i>
+      <span>Lige til at tage med</span><i class="kvist" aria-hidden="true"></i>
+      <span aria-hidden="true">Frisklavet</span><i class="kvist" aria-hidden="true"></i>
+      <span aria-hidden="true">SMÖR</span><i class="kvist" aria-hidden="true"></i>
+      <span aria-hidden="true">KOLD sandwich</span><i class="kvist" aria-hidden="true"></i>
+      <span aria-hidden="true">Pasta</span><i class="kvist" aria-hidden="true"></i>
+      <span aria-hidden="true">Friskpresset juice</span><i class="kvist" aria-hidden="true"></i>
+      <span aria-hidden="true">Masser af umami</span><i class="kvist" aria-hidden="true"></i>
+      <span aria-hidden="true">Lige til at tage med</span><i class="kvist" aria-hidden="true"></i>
     </div>
     <div class="spor" aria-hidden="true">
-      <span>Frisklavet</span><svg><use href="#blad"/></svg>
-      <span>SMÖR</span><svg><use href="#blad"/></svg>
-      <span>KOLD sandwich</span><svg><use href="#blad"/></svg>
-      <span>Pasta</span><svg><use href="#blad"/></svg>
-      <span>Friskpresset juice</span><svg><use href="#blad"/></svg>
-      <span>Masser af umami</span><svg><use href="#blad"/></svg>
-      <span>Lige til at tage med</span><svg><use href="#blad"/></svg>
-      <span>Frisklavet</span><svg><use href="#blad"/></svg>
-      <span>SMÖR</span><svg><use href="#blad"/></svg>
-      <span>KOLD sandwich</span><svg><use href="#blad"/></svg>
-      <span>Pasta</span><svg><use href="#blad"/></svg>
-      <span>Friskpresset juice</span><svg><use href="#blad"/></svg>
-      <span>Masser af umami</span><svg><use href="#blad"/></svg>
-      <span>Lige til at tage med</span><svg><use href="#blad"/></svg>
+      <span>Frisklavet</span><i class="kvist"></i>
+      <span>SMÖR</span><i class="kvist"></i>
+      <span>KOLD sandwich</span><i class="kvist"></i>
+      <span>Pasta</span><i class="kvist"></i>
+      <span>Friskpresset juice</span><i class="kvist"></i>
+      <span>Masser af umami</span><i class="kvist"></i>
+      <span>Lige til at tage med</span><i class="kvist"></i>
+      <span>Frisklavet</span><i class="kvist"></i>
+      <span>SMÖR</span><i class="kvist"></i>
+      <span>KOLD sandwich</span><i class="kvist"></i>
+      <span>Pasta</span><i class="kvist"></i>
+      <span>Friskpresset juice</span><i class="kvist"></i>
+      <span>Masser af umami</span><i class="kvist"></i>
+      <span>Lige til at tage med</span><i class="kvist"></i>
     </div>
     </div>
   </div>
