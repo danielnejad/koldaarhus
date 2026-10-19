@@ -2066,6 +2066,7 @@
         var v = inp.value.trim(), erNoegle = /^(ghp_|github_pat_|gho_)/.test(v.replace(/\s+/g, ''));
         if(!v) return;
         if(erNoegle) v = v.replace(/\s+/g, '');
+        if(!erNoegle && !(window.crypto && crypto.subtle)){ fejlP.textContent = 'Adgangskoden virker kun på den sikre adresse: https://koldaarhus.dk/#rediger'; fejlP.hidden = false; return; }
         knap.disabled = true; knap.textContent = 'Tjekker …'; fejlP.hidden = true;
         (erNoegle ? Promise.resolve(v) : laasOp(v)).then(tjek).then(function(n){ noegle = n; husk(n, cb.checked); bag.remove(); start(); }).catch(function(err){
           var t;
